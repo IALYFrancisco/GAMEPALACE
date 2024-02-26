@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # games palace
 
 This template should help get you started developing with Vue 3 in Vite.
@@ -43,4 +42,3 @@ npm run lint
 =======
 # GAMEPALACE-VUE.JS
 Mon premier projet avec VUE.js: VUE.JS c'est coool! GAMEPALACE est une plateforme d'achat de jeux vidéos, elle est fiable et ne comporte aucun risque contre les virus.
->>>>>>> a5e605450d40fe02c9242b9c22712fe02780602a
