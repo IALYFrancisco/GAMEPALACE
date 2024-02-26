@@ -4,6 +4,12 @@
         <div class="element">
             <img v-bind:src="imgLogo" alt="logo" title="logo" class="logo">
             <span>GamePalace</span>
+            <div class="cart">
+                <div class="badge" v-if="$store.state.count>0">
+                    {{ $store.state.count }}
+                </div>
+                <img v-bind:src="pannierUrl" alt="" title="Your cart">
+            </div>
         </div>
     </header>
     <nav>
@@ -162,6 +168,10 @@
         </div>
     </section>
 
+    <h1>Here's your state management!</h1>
+
+    <button @click="increment">incrémenter de 1 à 1</button>
+
 </template>
 
 <script>
@@ -169,6 +179,7 @@
 export default {
 
     data:function(){
+
         return {
             img1Url : 'src/assets/image (1).gif',
             img2Url : 'src/assets/image (2).webp',
@@ -187,12 +198,19 @@ export default {
             img15Url : 'src/assets/image (15).jpg',
             img16Url : 'src/assets/image (16).jpg',
             imgLogo : 'src/assets/logo.png',
+            pannierUrl : 'src/assets/icons8-cart-sf-regular/icons8-cart-48.png',
         }
     },
 
     methods: {
 
-    }
+        increment(){
+
+            this.$store.commit('increment')
+
+        }
+
+    },
 
 }
 
@@ -229,6 +247,32 @@ header div.element {
     align-items: center;
     padding-left: 10px;
     padding-top: 10px;
+    position: relative;
+}
+
+header div.element div.cart {
+    position: absolute;
+    right: 30px;
+}
+
+header div.element div.cart div.badge {
+    top: -5px;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20px;
+    height: 20px;
+    color: white;
+    background: red;
+    border-radius: 50%;
+    left: 20px;
+    font-size: 12px;
+
+}
+
+header div.element div.cart img {
+    width: 35px;
 }
 
 header div.element span {
