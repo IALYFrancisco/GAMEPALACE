@@ -1,3 +1,12 @@
+# Bonjour Msr,
+Ito le projet vue js
+Localstorage no mistock ny données ao @site, mandeha tsara
+
+# Reto daholo ny liens mandeh ao amle site 
+- http://localhost:5173/signin_signup_page: Page de connexion sy inscription, rehefa manao inscription ao ramose de mipotra any anaty adminBlog ny infos andramse
+- http://localhost:5173/adminBlog : Ito ny page an'i Admin, mbola tsy misy auth ny fidirana ao
+- http://localhost:5173/: Ito indray ny page d'acceuil
+
 # games palace
 
 This template should help get you started developing with Vue 3 in Vite.
