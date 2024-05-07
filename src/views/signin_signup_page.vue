@@ -11,7 +11,7 @@
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus esse fugiat, soluta ad quae natus nobis tempore numquam officiis sunt possimus officia suscipit nam repellat qui. Quaerat totam, dolor iure neque maxime laudantium ullam, ea, quidem nobis eius voluptas quae sapiente a? Fuga aperiam in eum, eos temporibus nam dignissimos.</p>
         </div>
         <div class="right_for_form">
-            <form class="signin" action="">
+            <form class="signin" action="" method="post">
                 <p>Sign in</p>
                 <div class="form_element">
                     <label for="username">Type your full name:</label>
@@ -34,13 +34,13 @@
                 </div>
                 
                 <div class="form_action">
-                    <button type="submit">Submit</button>
+                    <button v-on:submit.prevent="" type="submit">Submit</button>
                     <a href="#" id="link_to_signup">Have already an account?</a>
                 </div>
 
             </form>
 
-            <form class="signup" action="" v-on:submit.prevent="user_auth()">  
+            <form class="signup" action="" v-on:submit.prevent="user_auth()" method="post">  
                 <p>Sign up</p>
 
                 <div class="form_element">
