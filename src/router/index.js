@@ -1,6 +1,6 @@
 import HomeVue from '@/components/Home.vue'
 import DashboardView from '@/views/DashboardView.vue'
-import signin_signup_pageVue from '@/views/signin_signup_page.vue'
+import LoginOrRegisterView from '@/views/LoginOrRegisterView.vue'
 import { createRouter, createWebHistory } from 'vue-router'
 
 const router = createRouter({
@@ -17,9 +17,9 @@ const router = createRouter({
       component: DashboardView
     },
     {
-      path: "/signin_signup_page",
-      name: "signin_signup_page",
-      component: signin_signup_pageVue
+      path: "/login-or-register",
+      name: "login-or-register",
+      component: LoginOrRegisterView
     }
  
   ]

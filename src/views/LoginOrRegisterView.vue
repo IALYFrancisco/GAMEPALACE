@@ -66,6 +66,8 @@
 <script>
 export default {
 
+    name: "login-or-register",
+
     data:function(){
         return {
             imgLogo : 'src/assets/logo.png',   
