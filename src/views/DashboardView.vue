@@ -12,6 +12,8 @@
     import AllProductsView from '@/components/AllProductsView.vue'
     
     export default {
+
+        name: "DashboardView",
         
         data: function() {
             return{

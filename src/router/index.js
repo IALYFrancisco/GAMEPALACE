@@ -1,5 +1,5 @@
 import HomeVue from '@/components/Home.vue'
-import adminBlogVue from '@/views/adminBlog.vue'
+import DashboardView from '@/views/DashboardView.vue'
 import signin_signup_pageVue from '@/views/signin_signup_page.vue'
 import { createRouter, createWebHistory } from 'vue-router'
 
@@ -12,9 +12,9 @@ const router = createRouter({
       component: HomeVue
     },
     {
-      path: "/adminBlog",
-      name: "adminblog",
-      component: adminBlogVue
+      path: "/dashboard",
+      name: "dashboard",
+      component: DashboardView
     },
     {
       path: "/signin_signup_page",
