@@ -5,6 +5,9 @@
             <img src="/src/assets/logo.png" alt="logo" title="logo" class="logo">
             <span>GamePalace</span>
         </div>
+        <div class="button-container">
+            <button>Login</button>
+        </div>
     </header>
     <nav class="home">
         <ul>
@@ -167,6 +170,7 @@
 <script>
 
 export default {
+    name: 'HomeView'
 }
 
 </script>
@@ -193,6 +197,21 @@ header {
     background-position: center;
     box-shadow: 1px 1px 10px #33333356;
     transition: 0.5s;
+    display: flex;
+    justify-content: space-between;
+    padding: 30px;
+}
+
+header button {
+    padding: 5px 20px;
+    font-size: 13px;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    border-radius: 3px;
+    box-shadow: 1px 1px 10px #33333356;
+    background-color: orange;
+    color: white;
 }
 
 header div.element {
@@ -200,8 +219,6 @@ header div.element {
     height: max-content;
     display: flex;
     align-items: center;
-    padding-left: 10px;
-    padding-top: 10px;
 }
 
 header div.element span {
