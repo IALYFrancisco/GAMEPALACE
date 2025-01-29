@@ -193,7 +193,8 @@ export default {
         margin-top: 25px;
     }
 
-    div.signin_signup_page_container div.right_for_form form div.form_action button{
+    div.signin_signup_page_container div.right_for_form form div.form_action button {
+        cursor: pointer;
         background: #333;
         height: 30px;
         border-radius: 4px;
