@@ -19,8 +19,8 @@
 
     <section id="all_games">
         <div class="card">
-            <img src="/src/assets/logo.png" alt="" class="add-to-cart">
-            <img src="/src/assets/logo.png" alt="" class="view-details">
+            <img src="/src/assets/add-to-cart.png" alt="" class="add-to-cart">
+            <img src="/src/assets/view-details.png" alt="" class="view-details">
             <div class="img">
                 <img src="/src/assets/image (1).gif" alt="">
             </div>
@@ -234,7 +234,7 @@ section#all_games div.card {
 }
 
 .card > img.add-to-cart {
-    width: 40px;
+    width: 30px;
     position: absolute;
     top: 60%;
     left: 43%;
@@ -244,13 +244,13 @@ section#all_games div.card {
 
 .card:hover > img.add-to-cart {
     opacity: 1;
-    top: 40%;
+    top: 35%;
     transition: .5s;
     z-index: 1;
 }
 
 .card > img.view-details {
-    width: 40px;
+    width: 30px;
     position: absolute;
     top: 60%;
     left: 43%;
@@ -262,6 +262,7 @@ section#all_games div.card {
     opacity: 1;
     transition: .5s;
     z-index: 1;
+    top: 55%;
 }
 
 section#all_games div.card:hover {
