@@ -214,7 +214,7 @@ header button {
     border: none;
     border-radius: 3px;
     box-shadow: 1px 1px 10px #33333356;
-    background-color: orange;
+    background-color: #ff0000;
     color: white;
 }
 

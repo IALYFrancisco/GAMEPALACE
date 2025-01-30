@@ -1,7 +1,7 @@
 <script>
 
     export default {
-        name: "App"
+        name: ""
     }
 
 </script>
@@ -11,7 +11,4 @@
 </template>
 
 <style scoped>
-    * {
-        font-family: Poppins;
-    }
 </style>
