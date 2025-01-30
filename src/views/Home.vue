@@ -22,145 +22,81 @@
             <div class="img">
                 <img src="/src/assets/image (1).gif" alt="">
             </div>
-            <span class="name">
-            </span>
-            <span class="rate"></span>
-            <span class="action"></span>
         </div>
         <div class="card">
             <div class="img">
                 <img src="/src/assets/image (2).webp" alt="">
             </div>
-            <span class="name">
-            </span>
-            <span class="rate"></span>
-            <span class="action"></span>
         </div>
         <div class="card">
             <div class="img">
                 <img src="/src/assets/image (3).webp" alt="">
             </div>
-            <span class="name">
-            </span>
-            <span class="rate"></span>
-            <span class="action"></span>
         </div>
         <div class="card">
             <div class="img">
                 <img src="/src/assets/image (4).jpg" alt="">
             </div>
-            <span class="name">
-            </span>
-            <span class="rate"></span>
-            <span class="action"></span>
         </div>
         <div class="card">
             <div class="img">
                 <img src="/src/assets/image (5).jpg" alt="">
             </div>
-            <span class="name">
-            </span>
-            <span class="rate"></span>
-            <span class="action"></span>
         </div>
         <div class="card">
             <div class="img">
                 <img src="/src/assets/image (6).jpg" alt="">
             </div>
-            <span class="name">
-            </span>
-            <span class="rate"></span>
-            <span class="action"></span>
         </div>
         <div class="card">
             <div class="img">
                 <img src="/src/assets/image (7).jpg" alt="">
             </div>
-            <span class="name">
-            </span>
-            <span class="rate"></span>
-            <span class="action"></span>
         </div>
         <div class="card">
             <div class="img">
                 <img src="/src/assets/image (8).jpg" alt="">
             </div>
-            <span class="name">
-            </span>
-            <span class="rate"></span>
-            <span class="action"></span>
         </div>
         <div class="card">
             <div class="img">
                 <img src="/src/assets/image (9).webp" alt="">
             </div>
-            <span class="name">
-            </span>
-            <span class="rate"></span>
-            <span class="action"></span>
         </div>
         <div class="card">
             <div class="img">
                 <img src="/src/assets/image (10).jpg" alt="">
             </div>
-            <span class="name">
-            </span>
-            <span class="rate"></span>
-            <span class="action"></span>
         </div>
         <div class="card">
             <div class="img">
                 <img src="/src/assets/image (11).webp" alt="">
             </div>
-            <span class="name">
-            </span>
-            <span class="rate"></span>
-            <span class="action"></span>
         </div>
         <div class="card">
             <div class="img">
                 <img src="/src/assets/image (12).jpg" alt="">
             </div>
-            <span class="name">
-            </span>
-            <span class="rate"></span>
-            <span class="action"></span>
         </div>
         <div class="card">
             <div class="img">
                 <img src="/src/assets/image (13).webp" alt="">
             </div>
-            <span class="name">
-            </span>
-            <span class="rate"></span>
-            <span class="action"></span>
         </div>
         <div class="card">
             <div class="img">
                 <img src="/src/assets/image (14).jpg" alt="">
             </div>
-            <span class="name">
-            </span>
-            <span class="rate"></span>
-            <span class="action"></span>
         </div>
         <div class="card">
             <div class="img">
                 <img src="/src/assets/image (15).jpg" alt="">
             </div>
-            <span class="name">
-            </span>
-            <span class="rate"></span>
-            <span class="action"></span>
         </div>
         <div class="card">
             <div class="img">
                 <img src="/src/assets/image (16).jpg" alt="">
             </div>
-            <span class="name">
-            </span>
-            <span class="rate"></span>
-            <span class="action"></span>
         </div>
     </section>
 

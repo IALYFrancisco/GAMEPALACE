@@ -1,7 +1,7 @@
 <script>
 
     export default {
-        name: ""
+        name: "app"
     }
 
 </script>
@@ -9,6 +9,3 @@
 <template>
  <RouterView/>
 </template>
-
-<style scoped>
-</style>
