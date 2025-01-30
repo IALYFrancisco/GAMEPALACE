@@ -1,5 +1,3 @@
-import DashboardView from '@/views/DashboardView.vue'
-import LoginOrRegisterView from '@/views/LoginOrRegisterView.vue'
 import { createRouter, createWebHistory } from 'vue-router'
 
 const router = createRouter({
