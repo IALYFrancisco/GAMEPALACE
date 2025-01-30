@@ -1,4 +1,3 @@
-<!-- eslint-disable vue/multi-word-component-names -->
 <template>
     <header id="bannier" style="background-image: url('./src/assets/bannier (1).jpg');">
         <div class="element">
@@ -6,7 +5,7 @@
             <span>GamePalace</span>
         </div>
         <div class="button-container">
-            <button>Login</button>
+            <button @click="goToLoginRegisterPage">Login</button>
         </div>
     </header>
     <nav class="home">
@@ -170,7 +169,12 @@
 <script>
 
 export default {
-    name: 'HomeView'
+    name: 'HomeView',
+    methods: {
+        goToLoginRegisterPage(){
+            this.$router.push({name: 'Login-or-register'})
+        }
+    },
 }
 
 </script>
