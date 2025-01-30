@@ -255,13 +255,7 @@ section#all_games div.card div.img::before {
 }
 
 section#all_games div.card:hover div.img::before {
-    position: absolute;
-    content: '';
-    background: #33333375;
-    width: 100%;
     height: 100%;
-    bottom: 0;
-    transition: 0.4s;
 }
 
 section#all_games div.card div.img img {
