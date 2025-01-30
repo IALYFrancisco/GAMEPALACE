@@ -1,4 +1,3 @@
-import HomeVue from '@/components/Home.vue'
 import DashboardView from '@/views/DashboardView.vue'
 import LoginOrRegisterView from '@/views/LoginOrRegisterView.vue'
 import { createRouter, createWebHistory } from 'vue-router'
@@ -9,16 +8,16 @@ const router = createRouter({
     {
       path: '/',
       name: 'Home',
-      component: () => import('../components/Home.vue')
+      component: () => import('../views/Home.vue')
     },
     {
       path: "/dashboard",
-      name: "dashboard",
+      name: "Dashboard",
       component: DashboardView
     },
     {
       path: "/login-or-register",
-      name: "login-or-register",
+      name: "Login-or-register",
       component: LoginOrRegisterView
     }
  
