@@ -5,7 +5,7 @@
     <div class="signin_signup_page_container">
         <div class="left_for_text">
             <div class="element">
-                <img v-bind:src="imgLogo" alt="logo" title="logo" class="logo">
+                <img src="/src/assets/logo.png" alt="logo" title="logo" class="logo">
                 <span>GamePalace</span>
             </div>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus esse fugiat, soluta ad quae natus nobis tempore numquam officiis sunt possimus officia suscipit nam repellat qui. Quaerat totam, dolor iure neque maxime laudantium ullam, ea, quidem nobis eius voluptas quae sapiente a? Fuga aperiam in eum, eos temporibus nam dignissimos.</p>
@@ -69,8 +69,7 @@ export default {
     name: "login-or-register",
 
     data:function(){
-        return {
-            imgLogo : 'src/assets/logo.png',   
+        return {   
         }
     },
 
