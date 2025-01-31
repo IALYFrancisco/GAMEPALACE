@@ -1,9 +1,11 @@
-<!-- eslint-disable vue/multi-word-component-names -->
 <template>
     <header id="bannier" style="background-image: url('./src/assets/bannier (1).jpg');">
         <div class="element">
             <img src="/src/assets/logo.png" alt="logo" title="logo" class="logo">
             <span>GamePalace</span>
+        </div>
+        <div class="button-container">
+            <button @click="goToLoginRegisterPage">Login</button>
         </div>
     </header>
     <nav class="home">
@@ -17,148 +19,86 @@
 
     <section id="all_games">
         <div class="card">
+            <img src="/src/assets/add-to-cart.png" alt="" class="add-to-cart">
+            <img src="/src/assets/view-details.png" alt="" class="view-details">
             <div class="img">
                 <img src="/src/assets/image (1).gif" alt="">
             </div>
-            <span class="name">
-            </span>
-            <span class="rate"></span>
-            <span class="action"></span>
         </div>
         <div class="card">
             <div class="img">
                 <img src="/src/assets/image (2).webp" alt="">
             </div>
-            <span class="name">
-            </span>
-            <span class="rate"></span>
-            <span class="action"></span>
         </div>
         <div class="card">
             <div class="img">
                 <img src="/src/assets/image (3).webp" alt="">
             </div>
-            <span class="name">
-            </span>
-            <span class="rate"></span>
-            <span class="action"></span>
         </div>
         <div class="card">
             <div class="img">
                 <img src="/src/assets/image (4).jpg" alt="">
             </div>
-            <span class="name">
-            </span>
-            <span class="rate"></span>
-            <span class="action"></span>
         </div>
         <div class="card">
             <div class="img">
                 <img src="/src/assets/image (5).jpg" alt="">
             </div>
-            <span class="name">
-            </span>
-            <span class="rate"></span>
-            <span class="action"></span>
         </div>
         <div class="card">
             <div class="img">
                 <img src="/src/assets/image (6).jpg" alt="">
             </div>
-            <span class="name">
-            </span>
-            <span class="rate"></span>
-            <span class="action"></span>
         </div>
         <div class="card">
             <div class="img">
                 <img src="/src/assets/image (7).jpg" alt="">
             </div>
-            <span class="name">
-            </span>
-            <span class="rate"></span>
-            <span class="action"></span>
         </div>
         <div class="card">
             <div class="img">
                 <img src="/src/assets/image (8).jpg" alt="">
             </div>
-            <span class="name">
-            </span>
-            <span class="rate"></span>
-            <span class="action"></span>
         </div>
         <div class="card">
             <div class="img">
                 <img src="/src/assets/image (9).webp" alt="">
             </div>
-            <span class="name">
-            </span>
-            <span class="rate"></span>
-            <span class="action"></span>
         </div>
         <div class="card">
             <div class="img">
                 <img src="/src/assets/image (10).jpg" alt="">
             </div>
-            <span class="name">
-            </span>
-            <span class="rate"></span>
-            <span class="action"></span>
         </div>
         <div class="card">
             <div class="img">
                 <img src="/src/assets/image (11).webp" alt="">
             </div>
-            <span class="name">
-            </span>
-            <span class="rate"></span>
-            <span class="action"></span>
         </div>
         <div class="card">
             <div class="img">
                 <img src="/src/assets/image (12).jpg" alt="">
             </div>
-            <span class="name">
-            </span>
-            <span class="rate"></span>
-            <span class="action"></span>
         </div>
         <div class="card">
             <div class="img">
                 <img src="/src/assets/image (13).webp" alt="">
             </div>
-            <span class="name">
-            </span>
-            <span class="rate"></span>
-            <span class="action"></span>
         </div>
         <div class="card">
             <div class="img">
                 <img src="/src/assets/image (14).jpg" alt="">
             </div>
-            <span class="name">
-            </span>
-            <span class="rate"></span>
-            <span class="action"></span>
         </div>
         <div class="card">
             <div class="img">
                 <img src="/src/assets/image (15).jpg" alt="">
             </div>
-            <span class="name">
-            </span>
-            <span class="rate"></span>
-            <span class="action"></span>
         </div>
         <div class="card">
             <div class="img">
                 <img src="/src/assets/image (16).jpg" alt="">
             </div>
-            <span class="name">
-            </span>
-            <span class="rate"></span>
-            <span class="action"></span>
         </div>
     </section>
 
@@ -167,6 +107,12 @@
 <script>
 
 export default {
+    name: 'HomeView',
+    methods: {
+        goToLoginRegisterPage(){
+            this.$router.push({name: 'Login-or-register'})
+        }
+    },
 }
 
 </script>
@@ -193,6 +139,21 @@ header {
     background-position: center;
     box-shadow: 1px 1px 10px #33333356;
     transition: 0.5s;
+    display: flex;
+    justify-content: space-between;
+    padding: 30px;
+}
+
+header button {
+    padding: 5px 20px;
+    font-size: 13px;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    border-radius: 3px;
+    box-shadow: 1px 1px 10px #33333356;
+    background-color: #ff0000;
+    color: white;
 }
 
 header div.element {
@@ -200,8 +161,6 @@ header div.element {
     height: max-content;
     display: flex;
     align-items: center;
-    padding-left: 10px;
-    padding-top: 10px;
 }
 
 header div.element span {
@@ -271,6 +230,39 @@ section#all_games div.card {
     transition: 0.3s;
     padding-top: 2px;
     background: #00000028;
+    position: relative;
+}
+
+.card > img.add-to-cart {
+    width: 30px;
+    position: absolute;
+    top: 60%;
+    left: 43%;
+    opacity: 0;
+    transition: .5s;
+}
+
+.card:hover > img.add-to-cart {
+    opacity: 1;
+    top: 35%;
+    transition: .5s;
+    z-index: 1;
+}
+
+.card > img.view-details {
+    width: 30px;
+    position: absolute;
+    top: 60%;
+    left: 43%;
+    opacity: 0;
+    transition: .5s;
+}
+
+.card:hover > img.view-details {
+    opacity: 1;
+    transition: .5s;
+    z-index: 1;
+    top: 55%;
 }
 
 section#all_games div.card:hover {
@@ -298,13 +290,7 @@ section#all_games div.card div.img::before {
 }
 
 section#all_games div.card:hover div.img::before {
-    position: absolute;
-    content: '';
-    background: #33333375;
-    width: 100%;
     height: 100%;
-    bottom: 0;
-    transition: 0.4s;
 }
 
 section#all_games div.card div.img img {

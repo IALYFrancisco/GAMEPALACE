@@ -66,6 +66,8 @@
 <script>
 export default {
 
+    name: "login-or-register",
+
     data:function(){
         return {
             imgLogo : 'src/assets/logo.png',   
@@ -191,8 +193,9 @@ export default {
         margin-top: 25px;
     }
 
-    div.signin_signup_page_container div.right_for_form form div.form_action button{
-        background: #333;
+    div.signin_signup_page_container div.right_for_form form div.form_action button {
+        cursor: pointer;
+        background: #ff0000;
         height: 30px;
         border-radius: 4px;
         color: white;
@@ -234,8 +237,6 @@ div.signin_signup_page_container div.left_for_text div.element {
     height: max-content;
     display: flex;
     align-items: center;
-    padding-left: 10px;
-    padding-top: 10px;
 }
 
 div.signin_signup_page_container div.left_for_text div.element span {
@@ -246,7 +247,6 @@ div.signin_signup_page_container div.left_for_text div.element span {
  
 div.signin_signup_page_container div.left_for_text div.element img {
     width: 60px;
-    
 }
 
 

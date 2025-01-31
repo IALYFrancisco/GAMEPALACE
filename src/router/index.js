@@ -1,6 +1,3 @@
-import HomeVue from '@/components/Home.vue'
-import adminBlogVue from '@/views/adminBlog.vue'
-import signin_signup_pageVue from '@/views/signin_signup_page.vue'
 import { createRouter, createWebHistory } from 'vue-router'
 
 const router = createRouter({
@@ -9,19 +6,18 @@ const router = createRouter({
     {
       path: '/',
       name: 'Home',
-      component: HomeVue
+      component: () => import('../views/Home.vue')
     },
     {
-      path: "/adminBlog",
-      name: "adminblog",
-      component: adminBlogVue
+      path: "/dashboard",
+      name: "Dashboard",
+      component: () => import('../views/DashboardView.vue')
     },
     {
-      path: "/signin_signup_page",
-      name: "signin_signup_page",
-      component: signin_signup_pageVue
+      path: "/login-or-register",
+      name: "Login-or-register",
+      component: () => import('../views/LoginOrRegisterView.vue')
     }
- 
   ]
 })
 

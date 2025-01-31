@@ -1,7 +1,7 @@
 <script>
 
     export default {
-        
+        name: "app"
     }
 
 </script>
@@ -9,9 +9,3 @@
 <template>
  <RouterView/>
 </template>
-
-<style scoped>
-    * {
-        font-family: Poppins;
-    }
-</style>
