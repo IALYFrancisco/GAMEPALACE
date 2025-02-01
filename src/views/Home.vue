@@ -5,7 +5,7 @@
             <span>GamePalace</span>
         </div>
         <div class="header-actions">
-            <img src="/src/assets/cart.png" alt="" id="cart">
+            <img src="/src/assets/cart.png" alt="" id="cart" v-if="_userIsConnected">
             <button @click="goToLoginRegisterPage">Login</button>
         </div>
     </header>
@@ -107,12 +107,21 @@
 
 <script>
 
+import userStore from '../stores/user.js'
+
 export default {
     name: 'HomeView',
+    data(){
+        return {
+            _userIsConnected: userStore.state.userIsConnected
+        }
+    },
     methods: {
         goToLoginRegisterPage(){
             this.$router.push({name: 'Login-or-register'})
         }
+    },
+    mounted() {
     },
 }
 

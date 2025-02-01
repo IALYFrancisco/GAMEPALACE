@@ -1,8 +1,8 @@
 <script>
 
-    export default {
-        name: "app"
-    }
+export default {
+    name: "App",
+}
 
 </script>
 
