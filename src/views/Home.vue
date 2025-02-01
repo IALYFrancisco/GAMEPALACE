@@ -4,7 +4,8 @@
             <img src="/src/assets/logo.png" alt="logo" title="logo" class="logo">
             <span>GamePalace</span>
         </div>
-        <div class="button-container">
+        <div class="header-actions">
+            <img src="/src/assets/cart.png" alt="" id="cart">
             <button @click="goToLoginRegisterPage">Login</button>
         </div>
     </header>
@@ -154,6 +155,17 @@ header button {
     box-shadow: 1px 1px 10px #33333356;
     background-color: #ff0000;
     color: white;
+}
+
+header .header-actions {
+    display: flex;
+    height: max-content;
+    align-items: center;
+    column-gap: 20px;
+}
+
+#cart {
+    cursor: pointer;
 }
 
 header div.element {
