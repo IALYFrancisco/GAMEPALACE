@@ -1,7 +1,9 @@
 <template>
     <div class="sidebar">
         <div class="sidebar-head">
-            <img :src="imgLogo" alt="">
+            <router-link :to="{ name: 'Home' }">
+                <img src="../assets/logo.png" alt="Logo de gamepalace" title="Logo de gamepalace">
+            </router-link>
         </div>
         <hr>
         <div class="sidebar-body">
@@ -68,12 +70,7 @@ div.sidebar div.sidebar-body ul li {
 <script>
 
 export default {
-
-    data: function() {
-        return {
-            imgLogo : 'src/assets/logo.png',
-        }
-    }
+    name: "SidebarDashboardComponent"
 }
 
 </script>

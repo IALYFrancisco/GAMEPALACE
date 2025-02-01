@@ -11,26 +11,26 @@
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus esse fugiat, soluta ad quae natus nobis tempore numquam officiis sunt possimus officia suscipit nam repellat qui. Quaerat totam, dolor iure neque maxime laudantium ullam, ea, quidem nobis eius voluptas quae sapiente a? Fuga aperiam in eum, eos temporibus nam dignissimos.</p>
         </div>
         <div class="right_for_form">
-            <form class="signin" action="" method="post">
+            <form class="signin" @submit.prevent="userSignIn">
                 <p>Sign in</p>
                 <div class="form_element">
-                    <label for="username">Type your full name:</label>
-                    <input type="text" name="username" id="username" placeholder="ex: IALY Francisco Raymond">
+                    <label for="username">Name:</label>
+                    <input type="text" name="username" id="username" placeholder="ex: John Doe" v-model="user.name">
                 </div>
 
                 <div class="form_element">
-                    <label for="userbirthdate">Type your birthdate:</label>
-                    <input type="date" name="userbirthdate" id="userbirthdate">
+                    <label for="userbirthdate">Birthdate:</label>
+                    <input type="date" name="userbirthdate" id="userbirthdate" v-model="user.birthdate">
                 </div>
 
                 <div class="form_element">
-                    <label for="usermail">Type your email:</label>
-                    <input type="email" name="usermail" id="usermail" placeholder="ex: ialyfrancisco7@gmail.com">
+                    <label for="usermail">Email:</label>
+                    <input type="email" name="usermail" id="usermail" placeholder="ex: johndoe7@gmail.com" v-model="user.email">
                 </div>
 
                 <div class="form_element">
-                    <label for="userpassword">Type your password:</label>
-                    <input type="password" name="userpassword" id="userpassword" placeholder="Choose a strong password">
+                    <label for="userpassword">Password:</label>
+                    <input type="password" name="userpassword" id="userpassword" placeholder="Choose a strong password" v-model="user.password">
                 </div>
                 
                 <div class="form_action">
@@ -40,7 +40,7 @@
 
             </form>
 
-            <form class="signup" action="" v-on:submit.prevent="user_auth()" method="post">  
+            <form class="signup" action="" method="post">  
                 <p>Sign up</p>
 
                 <div class="form_element">
@@ -68,49 +68,24 @@ export default {
 
     name: "login-or-register",
 
-    data:function(){
-        return {   
+    data(){
+        return {
+            user: {
+                name: '',
+                birthdate: '',
+                email: '',
+                password: ''
+            }
         }
     },
 
-    methods : {
-      user_auth() {
-
-        const all_input_in_user_signup_form = document.querySelectorAll('.signup input');
-
-        const tabUserConnexion = new Array()
-
-        tabUserConnexion.push(JSON.parse(localStorage.getItem("user")));
-
-        console.log(all_input_in_user_signup_form[0].value)
-        
-
-        if(all_input_in_user_signup_form[0].value != tabUserConnexion[0]['email'] || all_input_in_user_signup_form[1].value != tabUserConnexion[0]['password']){
-            window.alert("Email incorrect ❌❌!")
+    methods: {
+        userSignIn(){
+            console.log(this.user)
         }
-
-        if(all_input_in_user_signup_form[0].value == tabUserConnexion[0]['email'] && all_input_in_user_signup_form[1].value == tabUserConnexion[0]['password']){
-            window.alert("Email incorrect ✔✔!")
-            console.log(tabUserConnexion)
-        }
-
-      }
     },
 
     mounted() {
-        const form = document.querySelector("form.signin");
-        const all_input = document.querySelectorAll("form.signin input");
-
-        // eslint-disable-next-line no-unused-vars
-        form.addEventListener("submit", (event) => {
-                localStorage.setItem(`key${localStorage.length}`, JSON.stringify({username: `${all_input[0].value}`,
-                    userBirthdate : `${all_input[1].value}`,
-                    usermail : `${all_input[2].value}`,
-                    userpassword : `${all_input[3].value}`}))
-        }
-            
-        );
-
 
         const link_to_signup = document.getElementById("link_to_signup");
 
@@ -174,7 +149,7 @@ export default {
         transition: all 0.69s;
     }
 
-    div.signin_signup_page_container div.right_for_form form{
+    div.signin_signup_page_container div.right_for_form form{ 
         width: 300px;
         height: max-content;
         background-color: #fff;
