@@ -1,6 +1,6 @@
 <template>
     <div class="video">
-        <video src="/src/assets/videos/NARUTO X BORUTO Ultimate Ninja STORM CONNECTIONS - Trailer de la date de sortie - PS5, PS4.mp4" autoplay muted loop></video>
+        <video src="/src/assets/videos/login-register-bg.mp4" autoplay muted loop></video>
     </div>
     <div class="signin_signup_page_container">
         <div class="left_for_text">
