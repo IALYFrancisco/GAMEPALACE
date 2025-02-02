@@ -64,6 +64,8 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
 
     name: "login-or-register",
@@ -80,8 +82,16 @@ export default {
     },
 
     methods: {
-        userSignIn(){
-            console.log(this.user)
+        async userSignIn(){
+            await axios({
+                method: "POST",
+                url: "http://127.0.0.1:3000/user",
+                data: this.user,
+                headers: [
+                    "Content-Type", "application/json"
+                ]
+            }).then((response)=>{console.log(response)})
+            .catch((error)=>{ "Erreur d'inscription" })
         }
     },
 
