@@ -26,12 +26,19 @@
             id="username"
             placeholder="ex: John Doe"
             v-model="user.name"
+            required
           />
         </div>
 
         <div class="form_element">
           <label for="userbirthdate">Birthdate:</label>
-          <input type="date" name="userbirthdate" id="userbirthdate" v-model="user.birthdate" />
+          <input
+            type="date"
+            name="userbirthdate"
+            id="userbirthdate"
+            v-model="user.birthdate"
+            required
+          />
         </div>
 
         <div class="form_element">
@@ -42,6 +49,7 @@
             id="usermail"
             placeholder="ex: johndoe7@gmail.com"
             v-model="user.email"
+            required
           />
         </div>
 
@@ -53,6 +61,7 @@
             id="userpassword"
             placeholder="Choose a strong password"
             v-model="user.password"
+            required
           />
         </div>
 
@@ -103,18 +112,22 @@ export default {
 
   methods: {
     async userSignIn() {
-      await axios({
-        method: 'POST',
-        url: 'http://127.0.0.1:3000/user',
-        data: this.user,
-        headers: ['Content-Type', 'application/json']
-      })
-        .then((response) => {
-          console.log(response)
+      if (this.user.password.length > 8) {
+        await axios({
+          method: 'POST',
+          url: 'http://127.0.0.1:3000/user',
+          data: this.user,
+          headers: ['Content-Type', 'application/json']
         })
-        .catch((error) => {
-          console.log(`Erreur d'inscription: ${error}`)
-        })
+          .then((response) => {
+            console.log(response)
+          })
+          .catch((error) => {
+            console.log(`Erreur d'inscription: ${error}`)
+          })
+      } else {
+        window.alert('Mot de passe trop court, choisissez au moins 8 caractères')
+      }
     }
   },
 
