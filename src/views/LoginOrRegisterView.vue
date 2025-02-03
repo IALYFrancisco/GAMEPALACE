@@ -25,7 +25,7 @@
             name="username"
             id="username"
             placeholder="ex: John Doe"
-            v-model="user.name"
+            v-model="userSignInInfo.name"
             required
           />
         </div>
@@ -36,7 +36,7 @@
             type="date"
             name="userbirthdate"
             id="userbirthdate"
-            v-model="user.birthdate"
+            v-model="userSignInInfo.birthdate"
             required
           />
         </div>
@@ -48,7 +48,7 @@
             name="usermail"
             id="usermail"
             placeholder="ex: johndoe7@gmail.com"
-            v-model="user.email"
+            v-model="userSignInInfo.email"
             required
           />
         </div>
@@ -60,7 +60,7 @@
             name="userpassword"
             id="userpassword"
             placeholder="Choose a strong password"
-            v-model="user.password"
+            v-model="userSignInInfo.password"
             required
           />
         </div>
@@ -71,17 +71,17 @@
         </div>
       </form>
 
-      <form class="signup" action="" method="post">
+      <form class="signup" action="" method="post" @submit.prevent="userLogin">
         <p>Sign up</p>
 
         <div class="form_element">
-          <label for="usermail">Type your email:</label>
-          <input type="email" name="usermail" placeholder="ex: ialyfrancisco7@gmail.com" />
+          <label for="usermail">Email:</label>
+          <input type="email" name="usermail" placeholder="exemple@gmail.com" required v-model="userLoginInfo.email"/>
         </div>
 
         <div class="form_element">
-          <label for="userpassword">Type your password:</label>
-          <input type="password" name="userpassword" placeholder="Choose a strong password" />
+          <label for="userpassword">Password:</label>
+          <input type="password" name="userpassword" required v-model="userLoginInfo.password"/>
         </div>
 
         <div class="form_action">
@@ -101,9 +101,13 @@ export default {
 
   data() {
     return {
-      user: {
+      userSignInInfo: {
         name: '',
         birthdate: '',
+        email: '',
+        password: ''
+      },
+      userLoginInfo: {
         email: '',
         password: ''
       }
@@ -112,22 +116,33 @@ export default {
 
   methods: {
     async userSignIn() {
-      if (this.user.password.length > 8) {
-        await axios({
-          method: 'POST',
-          url: 'http://127.0.0.1:3000/user',
-          data: this.user,
-          headers: ['Content-Type', 'application/json']
-        })
-          .then((response) => {
-            console.log(response)
+      try {
+        if (this.userSignInInfo.password.length > 8) {
+          await axios({
+            method: 'POST',
+            url: 'http://127.0.0.1:3000/user',
+            data: this.user,
+            headers: ['Content-Type', 'application/json']
           })
-          .catch((error) => {
-            console.log(`Erreur d'inscription: ${error}`)
-          })
-      } else {
-        window.alert('Mot de passe trop court, choisissez au moins 8 caractères')
+            .then((response) => {
+              if(response.status === 201){
+                this.$router.push({name: "Login-or-register"})
+              }
+              console.log(response)
+            })
+            .catch((error) => {
+              console.log(`Erreur d'inscription: ${error}`)
+            })
+        } else {
+          window.alert('Mot de passe trop court, choisissez au moins 8 caractères')
+        }
+      }catch(error){
+        console.log(`Erreur sur l'inscription de l'utilisateur: ${error}`)
       }
+    },
+
+    async userLogin(){
+      console.log(this.userLoginInfo)
     }
   },
 
