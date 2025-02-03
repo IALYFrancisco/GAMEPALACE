@@ -1,9 +1,11 @@
 <template>
   <header id="bannier" style="background-image: url('/src/assets/bannier (1).jpg')">
-    <div class="element">
-      <img src="/src/assets/logo.png" alt="logo" title="logo" class="logo" />
-      <span>GamePalace</span>
-    </div>
+    <router-link v-bind:to="{ name: 'Home' }">
+      <div class="element">
+        <img src="/src/assets/logo.png" alt="logo" title="logo" class="logo" />
+        <span>GAMEPALACE</span>
+      </div>
+    </router-link>
     <div class="header-actions">
       <img src="/src/assets/cart.png" alt="" id="cart" v-if="_userIsConnected" />
       <button @click="goToLoginRegisterPage">Login</button>

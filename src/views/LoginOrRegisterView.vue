@@ -4,10 +4,12 @@
   </div>
   <div class="signin_signup_page_container">
     <div class="left_for_text">
-      <div class="element">
-        <img src="/src/assets/logo.png" alt="logo" title="logo" class="logo" />
-        <span>GamePalace</span>
-      </div>
+      <router-link v-bind:to="{ name : 'Home' }">
+        <div class="element">
+          <img src="/src/assets/logo.png" alt="logo" title="logo" class="logo" />
+          <span>GAMEPALACE</span>
+        </div>
+      </router-link>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus esse fugiat, soluta
         ad quae natus nobis tempore numquam officiis sunt possimus officia suscipit nam repellat

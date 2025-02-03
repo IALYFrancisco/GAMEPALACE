@@ -1,42 +1,4 @@
-<template>
-  <form action="" id="edit_element" v-on:submit="test()">
-    <p>Sign in</p>
-    <div class="form_element">
-      <label for="username">Type your full name:</label>
-      <input type="text" name="username" id="username" placeholder="ex: IALY Francisco Raymond" />
-    </div>
-
-    <div class="form_element">
-      <label for="userbirthdate">Type your birthdate:</label>
-      <input type="date" name="userbirthdate" id="userbirthdate" />
-    </div>
-
-    <div class="form_element">
-      <label for="usermail">Type your email:</label>
-      <input
-        type="email"
-        name="usermail"
-        id="usermail"
-        placeholder="ex: ialyfrancisco7@gmail.com"
-      />
-    </div>
-
-    <div class="form_element">
-      <label for="userpassword">Type your password:</label>
-      <input
-        type="password"
-        name="userpassword"
-        id="userpassword"
-        placeholder="Choose a strong password"
-      />
-    </div>
-
-    <div class="form_action">
-      <button type="submit">Submit</button>
-      <a href="#" id="link_to_signup">Skip</a>
-    </div>
-  </form>
-
+<template>  
   <div class="all_product_container">
     <NavbarTopAdminBlog></NavbarTopAdminBlog>
 
