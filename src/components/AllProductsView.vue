@@ -75,7 +75,7 @@
     <div class="principal">
       <table style="width: 100%">
         <tr>
-          <th>Nome des utilisateurs</th>
+          <th>Nom des utilisateurs</th>
           <th>Date de naissance</th>
           <th>Poid des utilisateurs</th>
           <th>Email</th>
