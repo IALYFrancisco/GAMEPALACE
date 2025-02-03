@@ -143,6 +143,17 @@ export default {
 
     async userLogin(){
       console.log(this.userLoginInfo)
+      try {
+        await axios({
+          method: 'POST',
+          url: `http://127.0.0.1:3000/user/login?email=${this.userLoginInfo.email}&?password=${this.userLoginInfo.password}`,
+          headers: ['Content-Type', 'application/json']
+        }).then((response) => {
+          console.log(response)
+        })
+      }catch(error){
+        console.log(`Erreur de connexion de l'utilisateur: ${error}`)
+      }
     }
   },
 
