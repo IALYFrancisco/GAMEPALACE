@@ -169,29 +169,6 @@ export default {
       form_to_edit.style.transition = '3s'
     },
 
-    // addingNewValues(index){
-
-    //     const all_edit_form_input = document.querySelectorAll("form#edit_element input");
-
-    //     for(let counter = 0; counter < all_edit_form_input.length; counter++) {
-    //         if(counter == 0){
-    //             this.tableau_d_objet[index]["username"] = all_edit_form_input[counter].value
-    //         }else if(counter == 1){
-    //             this.tableau_d_objet[index]["userBirthdate"] = all_edit_form_input[counter].value
-    //         }
-    //         else if(counter == 2){
-    //             this.tableau_d_objet[index]["usermail"] = all_edit_form_input[counter].value
-    //         }else {
-    //             this.tableau_d_objet[index]["userpassword"] = all_edit_form_input[counter].value
-    //         }
-    //     }
-
-    //     localStorage.clear()
-
-    //     for(let counter = 0; counter < this.tableau_d_objet.length; counter++){
-    //         localStorage.setItem(`key${localStorage.length}`, JSON.stringify((this.tableau_d_objet[counter])));
-    //     }
-    // },
     test() {
       var index = this.element_edit_index
 
@@ -219,7 +196,6 @@ export default {
       }
     }
   },
-  //created() est une fonction prédéfinie, une fonction hook.
   created() {
     for (let counter = 0; counter < localStorage.length; counter++) {
       this.tableau_d_objet.push(JSON.parse(localStorage.getItem(`key${counter}`)))
