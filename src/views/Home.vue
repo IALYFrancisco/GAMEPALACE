@@ -120,9 +120,8 @@ export default {
     goToLoginRegisterPage() {
       this.$router.push({ name: 'Login-or-register' })
     }
-  },
-  mounted() {}
-}
+  }
+  }
 </script>
 
 <style>
