@@ -134,7 +134,7 @@ export default {
           })
             .then((response) => {
               if (response.status === 201) {
-                this.$router.push({ name: 'Login-or-register' })
+                this.$router.push({ name: 'Home' })
               }
               console.log(response)
             })
