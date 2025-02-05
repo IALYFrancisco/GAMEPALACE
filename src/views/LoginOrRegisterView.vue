@@ -139,7 +139,7 @@ export default {
                 this.$router.push({ name: 'Home' })
               // ici le statut 204 signifie que l'utilisateur existe déjà dans la liste des utilisateurs
               }else if(response.status === 204){
-                window.alert(`An user with email ${this.userSignInInfo.email} already exist!`)
+                window.alert(`An user with email ${this.userSignInInfo.email} already exist 🆔🆔!`)
               }
               console.log(response)
             })
