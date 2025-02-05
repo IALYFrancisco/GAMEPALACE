@@ -4,7 +4,7 @@
   </div>
   <div class="signin_signup_page_container">
     <div class="left_for_text">
-      <router-link v-bind:to="{ name : 'Home' }">
+      <router-link v-bind:to="{ name: 'Home' }">
         <div class="element">
           <img src="/src/assets/logo.png" alt="logo" title="logo" class="logo" />
           <span>GAMEPALACE</span>
@@ -78,12 +78,18 @@
 
         <div class="form_element">
           <label for="usermail">Email:</label>
-          <input type="email" name="usermail" placeholder="exemple@gmail.com" required v-model="userLoginInfo.email"/>
+          <input
+            type="email"
+            name="usermail"
+            placeholder="exemple@gmail.com"
+            required
+            v-model="userLoginInfo.email"
+          />
         </div>
 
         <div class="form_element">
           <label for="userpassword">Password:</label>
-          <input type="password" name="userpassword" required v-model="userLoginInfo.password"/>
+          <input type="password" name="userpassword" required v-model="userLoginInfo.password" />
         </div>
 
         <div class="form_action">
@@ -122,13 +128,20 @@ export default {
         if (this.userSignInInfo.password.length > 8) {
           await axios({
             method: 'POST',
-            url: 'http://127.0.0.1:3000/user',
-            data: this.user,
+            url: `${import.meta.env.VITE_BASE_URL}/user`,
+            data: this.userSignInInfo,
             headers: ['Content-Type', 'application/json']
           })
             .then((response) => {
-              if(response.status === 201){
-                this.$router.push({name: "Login-or-register"})
+              // ici le statut 201 signifie que l'utilisateur n'était pas dans la liste des utilisateurs que désormais il en fait partie
+              if (response.status === 201) {
+                window.alert(
+                  `Congratulation 🎉, you are signed in. Now, you'll be redirected to homapage!`
+                )
+                this.$router.push({ name: 'Home' })
+                // ici le statut 204 signifie que l'utilisateur existe déjà dans la liste des utilisateurs
+              } else if (response.status === 204) {
+                window.alert(`An user with email ${this.userSignInInfo.email} already exist 🆔🆔!`)
               }
               console.log(response)
             })
@@ -136,24 +149,23 @@ export default {
               console.log(`Erreur d'inscription: ${error}`)
             })
         } else {
-          window.alert('Mot de passe trop court, choisissez au moins 8 caractères')
+          window.alert('Mot de passe trop court, choisissez au moins 8 caractères 🚫🚫')
         }
-      }catch(error){
+      } catch (error) {
         console.log(`Erreur sur l'inscription de l'utilisateur: ${error}`)
       }
     },
 
-    async userLogin(){
-      console.log(this.userLoginInfo)
+    async userLogin() {
       try {
         await axios({
           method: 'POST',
-          url: `http://127.0.0.1:3000/user/login?email=${this.userLoginInfo.email}&password=${this.userLoginInfo.password}`,
+          url: `${import.meta.env.VITE_BASE_URL}/user/login?email=${this.userLoginInfo.email}&password=${this.userLoginInfo.password}`,
           headers: ['Content-Type', 'application/json']
         }).then((response) => {
           console.log(response)
         })
-      }catch(error){
+      } catch (error) {
         console.log(`Erreur de connexion de l'utilisateur: ${error}`)
       }
     }

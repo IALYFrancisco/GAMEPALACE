@@ -19,7 +19,7 @@
       <li>Jeux à venir</li>
     </ul>
   </nav>
-
+  <NoGamesComponent />
   <section id="all_games">
     <div class="card">
       <img src="/src/assets/add-to-cart.png" alt="" class="add-to-cart" />
@@ -108,9 +108,12 @@
 
 <script>
 import userStore from '../stores/user.js'
-
+import NoGamesComponent from '@/components/NoGamesComponent.vue'
 export default {
   name: 'HomeView',
+  components: {
+    NoGamesComponent
+  },
   data() {
     return {
       _userIsConnected: userStore.state.userIsConnected
@@ -120,8 +123,7 @@ export default {
     goToLoginRegisterPage() {
       this.$router.push({ name: 'Login-or-register' })
     }
-  },
-  mounted() {}
+  }
 }
 </script>
 
