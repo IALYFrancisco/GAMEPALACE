@@ -147,7 +147,7 @@ export default {
               console.log(`Erreur d'inscription: ${error}`)
             })
         } else {
-          window.alert('Mot de passe trop court, choisissez au moins 8 caractères')
+          window.alert('Mot de passe trop court, choisissez au moins 8 caractères 🚫🚫')
         }
       } catch (error) {
         console.log(`Erreur sur l'inscription de l'utilisateur: ${error}`)
