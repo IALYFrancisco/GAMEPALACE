@@ -129,7 +129,7 @@ export default {
           await axios({
             method: 'POST',
             url: `${import.meta.env.VITE_BASE_URL}/user`,
-            data: this.user,
+            data: this.userSignInInfo,
             headers: ['Content-Type', 'application/json']
           })
             .then((response) => {
@@ -150,7 +150,6 @@ export default {
     },
 
     async userLogin() {
-      console.log(this.userLoginInfo)
       try {
         await axios({
           method: 'POST',
