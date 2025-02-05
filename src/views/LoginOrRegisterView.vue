@@ -133,8 +133,12 @@ export default {
             headers: ['Content-Type', 'application/json']
           })
             .then((response) => {
+              // ici le statut 201 signifie que l'utilisateur n'était pas dans la liste des utilisateurs que désormais il en fait partie
               if (response.status === 201) {
                 this.$router.push({ name: 'Home' })
+              // ici le statut 204 signifie que l'utilisateur existe déjà dans la liste des utilisateurs
+              }else if(response.status === 204){
+
               }
               console.log(response)
             })
