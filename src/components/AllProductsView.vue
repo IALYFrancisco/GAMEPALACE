@@ -1,4 +1,4 @@
-<template>  
+<template>
   <div class="all_product_container">
     <NavbarTopAdminBlog></NavbarTopAdminBlog>
 

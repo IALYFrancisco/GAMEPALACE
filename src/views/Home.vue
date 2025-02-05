@@ -19,7 +19,7 @@
       <li>Jeux à venir</li>
     </ul>
   </nav>
-  <NoGamesComponent/>
+  <NoGamesComponent />
   <section id="all_games">
     <div class="card">
       <img src="/src/assets/add-to-cart.png" alt="" class="add-to-cart" />
@@ -108,7 +108,7 @@
 
 <script>
 import userStore from '../stores/user.js'
-import NoGamesComponent from '@/components/NoGamesComponent.vue';
+import NoGamesComponent from '@/components/NoGamesComponent.vue'
 export default {
   name: 'HomeView',
   components: {
@@ -124,7 +124,7 @@ export default {
       this.$router.push({ name: 'Login-or-register' })
     }
   }
-  }
+}
 </script>
 
 <style>

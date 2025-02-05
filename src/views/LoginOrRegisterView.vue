@@ -4,7 +4,7 @@
   </div>
   <div class="signin_signup_page_container">
     <div class="left_for_text">
-      <router-link v-bind:to="{ name : 'Home' }">
+      <router-link v-bind:to="{ name: 'Home' }">
         <div class="element">
           <img src="/src/assets/logo.png" alt="logo" title="logo" class="logo" />
           <span>GAMEPALACE</span>
@@ -78,12 +78,18 @@
 
         <div class="form_element">
           <label for="usermail">Email:</label>
-          <input type="email" name="usermail" placeholder="exemple@gmail.com" required v-model="userLoginInfo.email"/>
+          <input
+            type="email"
+            name="usermail"
+            placeholder="exemple@gmail.com"
+            required
+            v-model="userLoginInfo.email"
+          />
         </div>
 
         <div class="form_element">
           <label for="userpassword">Password:</label>
-          <input type="password" name="userpassword" required v-model="userLoginInfo.password"/>
+          <input type="password" name="userpassword" required v-model="userLoginInfo.password" />
         </div>
 
         <div class="form_action">
@@ -127,8 +133,8 @@ export default {
             headers: ['Content-Type', 'application/json']
           })
             .then((response) => {
-              if(response.status === 201){
-                this.$router.push({name: "Login-or-register"})
+              if (response.status === 201) {
+                this.$router.push({ name: 'Login-or-register' })
               }
               console.log(response)
             })
@@ -138,12 +144,12 @@ export default {
         } else {
           window.alert('Mot de passe trop court, choisissez au moins 8 caractères')
         }
-      }catch(error){
+      } catch (error) {
         console.log(`Erreur sur l'inscription de l'utilisateur: ${error}`)
       }
     },
 
-    async userLogin(){
+    async userLogin() {
       console.log(this.userLoginInfo)
       try {
         await axios({
@@ -153,7 +159,7 @@ export default {
         }).then((response) => {
           console.log(response)
         })
-      }catch(error){
+      } catch (error) {
         console.log(`Erreur de connexion de l'utilisateur: ${error}`)
       }
     }

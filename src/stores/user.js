@@ -7,9 +7,9 @@ const userStore = createStore({
     }
   },
   mutations: {
-      setUserIsConnected(state){
-        state.userIsConnected = true
-      }
+    setUserIsConnected(state) {
+      state.userIsConnected = true
+    }
   }
 })
 
