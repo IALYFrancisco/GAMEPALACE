@@ -165,6 +165,12 @@ export default {
           url: `${import.meta.env.VITE_BASE_URL}/user/login?email=${this.userLoginInfo.email}&password=${this.userLoginInfo.password}`,
           headers: ['Content-Type', 'application/json']
         }).then((response) => {
+          if(response.status == 200){
+            userStore.commit('setUserIsConnected')
+            this.$router.push({name: 'Home'})
+          }else if(response.status == 204){
+            window.alert("Email or password incorrect ⛔⛔")
+          }
           console.log(response)
         })
       } catch (error) {
