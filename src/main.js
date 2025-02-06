@@ -3,10 +3,12 @@ import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 import App from './App.vue'
 import router from './router'
-import userStore from './stores/user'
+import userStore from './stores/store'
+import gameStore from './stores/game'
 
 const app = createApp(App)
 
 app.use(createPinia())
 app.use(router)
+app.use(gameStore)
 app.use(userStore).mount('#app')

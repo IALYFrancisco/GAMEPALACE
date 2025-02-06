@@ -1,7 +1,22 @@
+import { createStore } from 'vuex'
+
+export const userStore = createStore({
+  state() {
+    return {
+      userIsConnected: false
+    }
+  },
+  mutations: {
+    setUserIsConnected(state) {
+      state.userIsConnected = true
+    }
+  }
+})
+
 import axios from "axios";
 import { createStore } from "vuex";
 
-const gameStore = createStore({
+export const gameStore = createStore({
     state(){
         return {
             listOfGames: []
@@ -26,5 +41,3 @@ const gameStore = createStore({
         }
     }
 })
-
-export default gameStore

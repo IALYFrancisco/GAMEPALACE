@@ -108,7 +108,8 @@
 </template>
 
 <script>
-import userStore from '../stores/user.js'
+import userStore from '@/stores/store';
+import gameStore from '@/stores/game.js';
 import NoGamesComponent from '@/components/NoGamesComponent.vue'
 export default {
   name: 'HomeView',
