@@ -108,8 +108,7 @@
 </template>
 
 <script>
-import userStore from '@/stores/store';
-import gameStore from '@/stores/game.js';
+import { gameStore, userStore } from '@/stores/store';
 import NoGamesComponent from '@/components/NoGamesComponent.vue'
 export default {
   name: 'HomeView',
@@ -118,13 +117,18 @@ export default {
   },
   data() {
     return {
-      _userIsConnected: userStore.state.userIsConnected
+      _userIsConnected: userStore.state.userIsConnected,
+      _listOfGames: gameStore.state.listOfGames
     }
   },
   methods: {
     goToLoginRegisterPage() {
       this.$router.push({ name: 'Login-or-register' })
     }
+  },
+  mounted(){
+    gameStore.commit('getListOfGames')
+    console.log(this._listOfGames)
   }
 }
 </script>

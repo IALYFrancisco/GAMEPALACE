@@ -1,3 +1,4 @@
+import axios from "axios";
 import { createStore } from 'vuex'
 
 export const userStore = createStore({
@@ -13,8 +14,6 @@ export const userStore = createStore({
   }
 })
 
-import axios from "axios";
-import { createStore } from "vuex";
 
 export const gameStore = createStore({
     state(){
