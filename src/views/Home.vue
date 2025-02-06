@@ -8,7 +8,8 @@
     </router-link>
     <div class="header-actions">
       <img src="/src/assets/cart.png" alt="" id="cart" v-if="_userIsConnected" />
-      <button @click="goToLoginRegisterPage">Login</button>
+      <button @click="goToLoginRegisterPage" v-if="!_userIsConnected">Login</button>
+      <button v-if="_userIsConnected">Log out</button>
     </div>
   </header>
   <nav class="home">
