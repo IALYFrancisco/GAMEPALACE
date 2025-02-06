@@ -21,7 +21,7 @@
     </ul>
   </nav>
   <NoGamesComponent />
-  <section id="all_games">
+  <section id="all_games" v-if="_listOfGames.length > 0">
     <div class="card">
       <img src="/src/assets/add-to-cart.png" alt="" class="add-to-cart" />
       <img src="/src/assets/view-details.png" alt="" class="view-details" />

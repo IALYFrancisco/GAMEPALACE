@@ -18,7 +18,8 @@ export const userStore = createStore({
 export const gameStore = createStore({
     state(){
         return {
-            listOfGames: []
+            listOfGames: [],
+            
         }
     }, mutations: {
         async getListOfGames(state){
