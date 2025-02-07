@@ -103,7 +103,7 @@
 
 <script>
 import axios from 'axios'
-import userStore from '@/stores/store';
+import {userStore} from '@/stores/store';
 
 export default {
   name: 'login-or-register',
