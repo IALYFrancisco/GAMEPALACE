@@ -2,7 +2,7 @@
   <div class="all_product_container">
     <NavbarTopAdminBlog></NavbarTopAdminBlog>
 
-    <div class="cards">
+    <!-- <div class="cards">
       <div class="card">
         <p class="text">Effectifs totals:</p>
         <hr />
@@ -25,7 +25,7 @@
         <hr />
         <p class="number">13</p>
       </div>
-    </div>
+    </div> -->
     <nav class="recherche">
       <ul>
         <li class="left">
@@ -238,7 +238,7 @@ div.all_product_container div.principal {
   overflow-y: scroll;
 }
 
-div.all_product_container .cards {
+/* div.all_product_container .cards {
   width: max-content;
   margin: 20px auto;
   height: max-content;
@@ -276,7 +276,7 @@ div.all_product_container .cards .card p.number {
 div.all_product_container .cards .card hr {
   border: none;
   background: rgb(78, 77, 77);
-}
+} */
 
 table,
 th,
