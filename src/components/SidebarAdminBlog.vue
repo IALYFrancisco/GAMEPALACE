@@ -8,10 +8,9 @@
     <hr />
     <div class="sidebar-body">
       <ul>
-        <li>Utilisateurs</li>
-        <li>Produits</li>
-        <li>Statistiques</li>
-        <li>Paramètres</li>
+        <li>Games</li>
+        <li>Users</li>
+        <li>Settings</li>
       </ul>
     </div>
   </div>
