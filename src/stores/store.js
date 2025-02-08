@@ -27,9 +27,9 @@ export const gameStore = createStore({
                 await axios({
                     method: 'GET',
                     url: `${import.meta.env.VITE_BASE_URL}/game`
-                }).then((response)=>{
+                }).then( async (response)=>{
                     if(response.status == 200){
-                        state.listOfGames = response.data
+                        state.listOfGames = await response.data
                     }else if(response.status == 204) {
                         console.log('Aucun jeu disponible, la collection est vide.')
                     }
