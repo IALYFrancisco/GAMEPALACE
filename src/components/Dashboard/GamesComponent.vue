@@ -61,8 +61,8 @@ export default {
             this.formActivClass = false
         }
     },
-    mounted(){
-        gameStore.commit('getListOfGames')
+    async mounted(){
+        await gameStore.commit('getListOfGames')
     }
 }
 </script>
