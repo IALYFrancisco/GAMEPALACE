@@ -33,7 +33,8 @@ export const gameStore = createStore({
                         console.log('Aucun jeu disponible, la collection est vide.')
                     }
                 })
-                .catch(error => console.log(`Erreur de récupération de liste des jeux: ${error}`))           
+                .catch(error => console.log(`Erreur de récupération de liste des jeux: ${error}`))
+                console.log(state.listOfGames)          
             }catch(error){
                 console.log(`Erreur de récupération de liste des jeux: ${error}`)
             }
