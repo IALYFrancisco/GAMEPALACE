@@ -60,9 +60,6 @@ export default {
         hideAddingForm(){
             this.formActivClass = false
         }
-    },
-    async mounted(){
-        await gameStore.commit('getListOfGames')
     }
 }
 </script>
