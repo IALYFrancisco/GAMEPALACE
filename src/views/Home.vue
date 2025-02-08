@@ -21,7 +21,7 @@
     </ul>
   </nav>
   <NoGamesComponent />
-  <section id="all_games">
+  <section id="all_games" v-if="_listOfGames.length > 0">
     <div class="card">
       <img src="/src/assets/add-to-cart.png" alt="" class="add-to-cart" />
       <img src="/src/assets/view-details.png" alt="" class="view-details" />
@@ -108,7 +108,7 @@
 </template>
 
 <script>
-import userStore from '../stores/user.js'
+import { gameStore, userStore } from '@/stores/store';
 import NoGamesComponent from '@/components/NoGamesComponent.vue'
 export default {
   name: 'HomeView',
@@ -117,13 +117,18 @@ export default {
   },
   data() {
     return {
-      _userIsConnected: userStore.state.userIsConnected
+      _userIsConnected: userStore.state.userIsConnected,
+      _listOfGames: gameStore.state.listOfGames
     }
   },
   methods: {
     goToLoginRegisterPage() {
       this.$router.push({ name: 'Login-or-register' })
     }
+  },
+  mounted(){
+    gameStore.commit('getListOfGames')
+    console.log(this._listOfGames)
   }
 }
 </script>

@@ -1,7 +1,7 @@
 <template>
   <nav>
     <div class="profil-container">
-      <img v-bind:src="profil" alt="profil" title="profil" />
+      <img src="../assets/avatar1.png" alt="profil" title="profil" />
       <span>Admin</span>
     </div>
   </nav>
@@ -11,11 +11,6 @@
 
 <script>
 export default {
-  data: function () {
-    return {
-      profil: 'src/assets/avatar1.png'
-    }
-  }
 }
 </script>
 
@@ -63,7 +58,7 @@ nav div.profil-container img {
 hr {
   width: 97%;
   height: 0.1px;
-  margin: auto;
+  margin: 0 auto 75px auto;
   border: none;
   background-color: rgb(231, 229, 229);
 }

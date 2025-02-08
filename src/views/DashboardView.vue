@@ -1,14 +1,15 @@
 <template>
   <div class="container">
     <SidebarAdminBlog></SidebarAdminBlog>
-    <AllProductsView></AllProductsView>
+    <section class="dynamicPartContainer">
+      <RouterView/>
+    </section>
   </div>
 </template>
 
 <script>
 import SidebarAdminBlog from '@/components/SidebarAdminBlog.vue'
-import AllProductsView from '@/components/AllProductsView.vue'
-
+import { RouterView } from 'vue-router';
 export default {
   name: 'DashboardView',
 
@@ -17,7 +18,7 @@ export default {
   },
   components: {
     SidebarAdminBlog,
-    AllProductsView
+    RouterView
   }
 }
 </script>
@@ -27,5 +28,11 @@ div.container {
   width: 100%;
   height: max-content;
   display: flex;
+}
+
+.dynamicPartContainer {
+  width: calc(100% - 150px);
+  height: 100vh;
+  overflow-y: auto;
 }
 </style>

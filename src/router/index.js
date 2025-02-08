@@ -11,7 +11,24 @@ const router = createRouter({
     {
       path: '/dashboard',
       name: 'Dashboard',
-      component: () => import('../views/DashboardView.vue')
+      component: () => import('../views/DashboardView.vue'),
+      children: [
+        {
+          path: '',
+          name: 'Games',
+          component: () => import('@/components/Dashboard/GamesComponent.vue')
+        },
+        {
+          path: 'user',
+          name: 'Users',
+          component: () => import('@/components/Dashboard/UsersComponent.vue')
+        },
+        {
+          path: 'settings',
+          name: 'Settings',
+          component: () => import('@/components/Dashboard/SettingsComponent.vue')
+        }
+      ]
     },
     {
       path: '/login-or-register',
