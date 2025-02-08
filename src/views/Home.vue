@@ -50,10 +50,6 @@ export default {
     goToLoginRegisterPage() {
       this.$router.push({ name: 'Login-or-register' })
     }
-  },
-  mounted(){
-    gameStore.commit('getListOfGames')
-    console.log(this._listOfGames)
   }
 }
 </script>

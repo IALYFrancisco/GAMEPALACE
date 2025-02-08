@@ -1,9 +1,11 @@
 <script>
-import { gameStore } from './stores/store';
+import {gameStore} from '@/stores/store'
+
 export default {
   name: 'App',
-  async mounted(){
-    await gameStore.commit("getListOfGames")
+  async beforeMount(){
+    await gameStore.commit('getListOfGames')
+    console.log(await gameStore.state.listOfGames)
   }
 }
 </script>
