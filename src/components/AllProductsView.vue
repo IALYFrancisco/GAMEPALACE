@@ -1,31 +1,6 @@
 <template>
   <div class="all_product_container">
     <NavbarTopAdminBlog></NavbarTopAdminBlog>
-
-    <!-- <div class="cards">
-      <div class="card">
-        <p class="text">Effectifs totals:</p>
-        <hr />
-        <p class="number">
-          {{ effectif_total_de_produits }}
-        </p>
-      </div>
-      <div class="card">
-        <p class="text">Votre solde:</p>
-        <hr />
-        <p class="number">Ar 432000</p>
-      </div>
-      <div class="card">
-        <p class="text">Trafiques:</p>
-        <hr />
-        <p class="number">4</p>
-      </div>
-      <div class="card">
-        <p class="text">Message:</p>
-        <hr />
-        <p class="number">13</p>
-      </div>
-    </div> -->
     <nav class="recherche">
       <ul>
         <li class="left">
@@ -34,40 +9,6 @@
         </li>
       </ul>
     </nav>
-    <div class="principal">
-      <table style="width: 100%">
-        <tr>
-          <th>Nom des utilisateurs</th>
-          <th>Date de naissance</th>
-          <th>Poid des utilisateurs</th>
-          <th>Email</th>
-          <th>Actions</th>
-        </tr>
-        <tr v-for="item in tableau_d_objet">
-          <td>
-            {{ item.username }}
-          </td>
-          <td>
-            {{ item.userBirthdate }}
-          </td>
-          <td>
-            {{ item.usermail }}
-          </td>
-          <td>
-            {{ item.userpassword }}
-          </td>
-          <td class="list_action">
-            <a
-              href="#"
-              style="margin-right: 50px"
-              v-on:click="_delete(tableau_d_objet.indexOf(item))"
-              >Delete</a
-            >
-            <a href="#" v-on:click="_edit(tableau_d_objet.indexOf(item))">Edit</a>
-          </td>
-        </tr>
-      </table>
-    </div>
   </div>
 </template>
 
@@ -229,75 +170,6 @@ form#edit_element input {
 div.all_product_container {
   width: 100%;
   height: 60px;
-}
-
-div.all_product_container div.principal {
-  width: 95%;
-  height: 45vh;
-  margin: 20px auto;
-  overflow-y: scroll;
-}
-
-/* div.all_product_container .cards {
-  width: max-content;
-  margin: 20px auto;
-  height: max-content;
-  display: flex;
-  justify-content: space-around;
-}
-
-div.all_product_container .cards .card {
-  width: 250px;
-  height: 150px;
-  background: #333;
-  margin: 10px 10px;
-  border-radius: 4px;
-}
-
-div.all_product_container .cards .card p.text {
-  width: 100%;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  padding: 20px;
-  color: white;
-}
-
-div.all_product_container .cards .card p.number {
-  width: 100%;
-  height: 80%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-size: 32px;
-}
-
-div.all_product_container .cards .card hr {
-  border: none;
-  background: rgb(78, 77, 77);
-} */
-
-table,
-th,
-td {
-  color: white;
-  border: 2px solid #818181;
-  border-collapse: collapse;
-}
-
-th,
-td {
-  height: 50px;
-}
-
-th {
-  background: #333;
-}
-
-td {
-  color: #333;
-  padding-left: 45px;
 }
 
 nav.recherche {
