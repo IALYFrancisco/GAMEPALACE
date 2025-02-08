@@ -1,13 +1,11 @@
 <template>
   <div class="container">
     <SidebarAdminBlog></SidebarAdminBlog>
-    <AllProductsView></AllProductsView>
   </div>
 </template>
 
 <script>
 import SidebarAdminBlog from '@/components/SidebarAdminBlog.vue'
-import AllProductsView from '@/components/AllProductsView.vue'
 
 export default {
   name: 'DashboardView',
@@ -16,8 +14,7 @@ export default {
     return {}
   },
   components: {
-    SidebarAdminBlog,
-    AllProductsView
+    SidebarAdminBlog
   }
 }
 </script>
