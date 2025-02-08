@@ -1,5 +1,7 @@
 <template>
-    <h1>This is games component!</h1>
+    <section class="action">
+        <button>add game</button>
+    </section>
     <section class="no-games" v-if="_listOfGames.length == 0">
         <h4>No <span class="red">games</span> availables 🎮</h4>
     </section>
@@ -41,4 +43,25 @@ export default {
 .no-games h4 span {
     color: #ff0000;
 }
+
+.action {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    padding-right: 30px;
+}
+
+.action button {
+  padding: 5px 20px;
+  font-size: 13px;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  border-radius: 3px;
+  box-shadow: 1px 1px 10px #33333356;
+  background-color: #ff0000;
+  color: white;
+}
+
 </style>
