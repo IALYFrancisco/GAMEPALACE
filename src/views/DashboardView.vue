@@ -1,12 +1,15 @@
 <template>
   <div class="container">
     <SidebarAdminBlog></SidebarAdminBlog>
+    <section class="dynamicPartContainer">
+      <RouterView/>
+    </section>
   </div>
 </template>
 
 <script>
 import SidebarAdminBlog from '@/components/SidebarAdminBlog.vue'
-
+import { RouterView } from 'vue-router';
 export default {
   name: 'DashboardView',
 
@@ -14,7 +17,8 @@ export default {
     return {}
   },
   components: {
-    SidebarAdminBlog
+    SidebarAdminBlog,
+    RouterView
   }
 }
 </script>
