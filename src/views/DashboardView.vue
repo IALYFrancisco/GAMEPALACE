@@ -29,4 +29,10 @@ div.container {
   height: max-content;
   display: flex;
 }
+
+.dynamicPartContainer {
+  width: calc(100% - 150px);
+  height: 100vh;
+  overflow-y: auto;
+}
 </style>
