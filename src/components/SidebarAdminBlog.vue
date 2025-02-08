@@ -8,9 +8,15 @@
     <hr />
     <div class="sidebar-body">
       <ul>
-        <li>Games</li>
-        <li>Users</li>
-        <li>Settings</li>
+        <li>
+          <router-link :to="{name: 'Games'}">Games</router-link>
+        </li>
+        <li>
+          <router-link :to="{name: 'Users'}">Users</router-link>
+        </li>
+        <li>
+          <router-link :to="{name: 'Settings'}">Settings</router-link>
+        </li>
       </ul>
     </div>
   </div>
@@ -62,6 +68,11 @@ div.sidebar div.sidebar-body ul {
 div.sidebar div.sidebar-body ul li {
   margin-bottom: 30px;
 }
+
+ul li a {
+  color: white;
+}
+
 </style>
 
 <script>
