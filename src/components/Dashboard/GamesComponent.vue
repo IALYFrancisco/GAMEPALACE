@@ -63,5 +63,4 @@ export default {
   background-color: #ff0000;
   color: white;
 }
-
 </style>
