@@ -1,18 +1,12 @@
 <template>
-  <div id="no-games" v-if="_listOfGames.length==0">
+  <div id="no-games">
     <h3>No <span class="red">games</span> availables 🎮</h3>
   </div>
 </template>
 
 <script>
-import { gameStore } from '@/stores/store';
 export default {
-  name: 'NoGamesComponent',
-  data(){
-    return{
-      _listOfGames: gameStore.state.listOfGames
-    }
-  }
+  name: 'NoGamesComponent'
 }
 </script>
 
