@@ -3,7 +3,7 @@ import {gameStore} from '@/stores/store'
 export default {
   name: 'App',
   async mounted() {
-    await gameStore.commit('getListOfGames')
+    console.log( await gameStore.getters.requestIsDoneAndListIsNotEmpty )
   },
 }
 </script>

@@ -21,16 +21,18 @@ export const gameStore = createStore({
       stateOfGetGamesListRequest: false
     }
   },
-  mutations: {
-    async getListOfGames(state){
+  getters: {
+    async requestIsDoneAndListIsNotEmpty(state){
+
       try {
         await axios({
           method: 'GET',
-          url: `${import.meta.env}/game`
+          url: `${import.meta.env.VITE_BASE_URL}/game`
         }).then((response) => {
           // la liste contient au moins un élément
           if(response.status == 200){
-            state.listOfGames = response.data
+            state.listOfGames = response.data,
+            console.log(response.data)
           }
           // la liste est vide
           else if(response.status == 204){
@@ -43,6 +45,12 @@ export const gameStore = createStore({
         console.log(`Erreur de récupération de liste de jeux`)
       }finally{
         state.stateOfGetGamesListRequest = true
+      }
+
+      if( state.stateOfGetGamesListRequest && state.listOfGames.length > 0 ){
+        return true
+      }else if ( state.stateOfGetGamesListRequest && state.listOfGames.length == 0 ){
+        return false
       }
     }
   }

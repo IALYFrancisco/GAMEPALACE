@@ -21,7 +21,7 @@
     </ul>
   </nav>
   <NoGamesComponent />
-  <!-- <section id="all_games" v-if="_listOfGames.length > 0">
+  <section id="all_games" v-if="!_stateOfGetGamesListRequest || _requestIsDoneAndListIsNotEmpty">
     <div class="card" v-for="game in _listOfGames">
       <img src="/src/assets/add-to-cart.png" alt="" class="add-to-cart" />
       <img src="/src/assets/view-details.png" alt="" class="view-details" />
@@ -29,11 +29,11 @@
         <img :src="game.poster_file_url" alt="" />
       </div>
     </div>
-  </section> -->
+  </section>
 </template>
 
 <script>
-import { userStore } from '@/stores/store';
+import { userStore, gameStore } from '@/stores/store';
 import NoGamesComponent from '@/components/NoGamesComponent.vue'
 export default {
   name: 'HomeView',
@@ -42,14 +42,20 @@ export default {
   },
   data() {
     return {
-      _userIsConnected: userStore.state.userIsConnected
+      _userIsConnected: userStore.state.userIsConnected,
+      _stateOfGetGamesListRequest: gameStore.state.stateOfGetGamesListRequest,
+      _requestIsDoneAndListIsNotEmpty: gameStore.getters.requestIsDoneAndListIsNotEmpty,
+      _listOfGames: []
     }
   },
   methods: {
     goToLoginRegisterPage() {
       this.$router.push({ name: 'Login-or-register' })
     }
-  }
+  },
+  async mounted() {
+    this._listOfGames = await gameStore.state.listOfGames
+  },
 }
 </script>
 
