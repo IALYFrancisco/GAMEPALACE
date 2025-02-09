@@ -26,7 +26,7 @@
     <section class="action">
         <button @click="showAddingForm">add game</button>
     </section>
-    <section class="no-games" v-if="_listOfGames.length == 0">
+    <section class="no-games" v-if="true">
         <h4>No <span class="red">games</span> availables 🎮</h4>
     </section>
     <section v-else>
@@ -41,7 +41,6 @@ export default {
     name: "GamesComponent",
     data(){
         return {
-            _listOfGames: gameStore.state.listOfGames,
             formActivClass: false,
             gameInfoToAdd: {
                 name: '',
