@@ -26,7 +26,12 @@
     <section class="action">
         <button @click="showAddingForm">add game</button>
     </section>
-    <section class="list-of-games">
+    <section class="loader" v-if="!requestIsDone">
+        <div class="loader-container">
+            <img src="/src/assets/loader.gif" alt="icon de chargement">
+        </div>
+    </section>
+    <section class="list-of-games" v-if="requestIsDone && listOfGames.length > 0">
         <ul>
             <li class="title-container">
                 <p class="poster">POSTER</p>
@@ -47,7 +52,7 @@
             </li>
         </ul>
     </section>
-    <section class="no-games">
+    <section class="no-games" v-if="requestIsDone && listOfGames.length == 0">
         <h4>No <span class="red">games</span> availables 🎮</h4>
     </section>
 </template>
@@ -64,7 +69,8 @@ export default {
                 poster_file_url: '',
                 category: 'pc'
             },
-            listOfGames : []
+            listOfGames : [],
+            requestIsDone: false
         }
     },
     methods: {
@@ -103,6 +109,8 @@ export default {
                 }).catch((error) => {console.log(`Erreur de récupération de jeux: ${error}`)})
             }catch(error){
                 console.log(`Erreur de récupération de liste de jeux: ${error}`)
+            }finally {
+                this.requestIsDone = true
             }
         }
     },
@@ -288,6 +296,14 @@ form button {
     font-weight: 900;
     display: flex;
     align-items: center;
+}
+
+.loader {
+    width: 100%;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 </style>
