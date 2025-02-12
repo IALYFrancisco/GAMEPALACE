@@ -11,7 +11,7 @@
         </div>
         <div class="form-element">
             <label for="game-poster-file-url">Poster url :</label>
-            <input type="url" id="game-poster-file-url" required v-model="gameInfoToAdd.poster_url">
+            <input type="url" id="game-poster-file-url" required v-model="gameInfoToAdd.poster_file_url">
         </div>
         <div class="form-element">
             <label for="game-category">Category</label>
@@ -37,6 +37,7 @@
 
 <script>
 import { gameStore } from '@/stores/store';
+import axios from 'axios'
 export default {
     name: "GamesComponent",
     data(){
@@ -44,14 +45,26 @@ export default {
             formActivClass: false,
             gameInfoToAdd: {
                 name: '',
-                poster_url: '',
+                poster_file_url: '',
                 category: 'pc'
             }
         }
     },
     methods: {
-        addGame(){
-            console.log(this.gameInfoToAdd)
+        async addGame(){
+            try {
+                axios({
+                    method: 'POST',
+                    url: `${import.meta.env.VITE_BASE_URL}/game`,
+                    data: this.gameInfoToAdd
+                }).then((response) => {
+                    if(response.status == 201){
+                        window.alert("Jeu ajouté dans la base de données ✅✅")
+                    }
+                })
+            }catch(error) {
+                console.log(`Erreur d'ajout du ressource dans la base de données: ${error}`)
+            }
         },
         showAddingForm(){
             this.formActivClass = true
