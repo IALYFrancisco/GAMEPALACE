@@ -26,17 +26,33 @@
     <section class="action">
         <button @click="showAddingForm">add game</button>
     </section>
-    <section class="no-games" v-if="true">
-        <h4>No <span class="red">games</span> availables 🎮</h4>
+    <section class="list-of-games">
+        <ul>
+            <li class="title-container">
+                <p class="poster">POSTER</p>
+                <p class="name">NAME</p>
+                <p class="category">CATEGORY</p>
+                <p class="actions">ACTIONS</p>
+            </li>
+            <li v-for="game in listOfGames">
+                <div class="img-container">
+                    <img v-bind:src="game.poster_file_url" :alt="'poster du jeux ' + game.name">
+                </div>
+                <p class="name">{{ game.name }}</p>
+                <p class="category">{{ game.category }}</p>
+                <div class="actions">
+                    <img src="" alt="">
+                    <img src="" alt="">
+                </div>
+            </li>
+        </ul>
     </section>
-    <section v-else>
-        <table>
-        </table>
+    <section class="no-games">
+        <h4>No <span class="red">games</span> availables 🎮</h4>
     </section>
 </template>
 
 <script>
-import { gameStore } from '@/stores/store';
 import axios from 'axios'
 export default {
     name: "GamesComponent",
@@ -47,7 +63,8 @@ export default {
                 name: '',
                 poster_file_url: '',
                 category: 'pc'
-            }
+            },
+            listOfGames : []
         }
     },
     methods: {
@@ -71,7 +88,27 @@ export default {
         },
         hideAddingForm(){
             this.formActivClass = false
+        },
+        async getListOfGames(){
+            try {
+                await axios({
+                    method: 'GET',
+                    url : `${import.meta.env.VITE_BASE_URL}/game`
+                }).then((response) => {
+                    if(response.status == 200){
+                        this.listOfGames = response.data
+                    }else if (response.status == 204){
+                        console.log("La liste des jeux est vide")
+                    }
+                }).catch((error) => {console.log(`Erreur de récupération de jeux: ${error}`)})
+            }catch(error){
+                console.log(`Erreur de récupération de liste de jeux: ${error}`)
+            }
         }
+    },
+    async mounted(){
+        await this.getListOfGames()
+        console.log(this.listOfGames)
     }
 }
 </script>
@@ -208,4 +245,49 @@ form button {
     font-size: 13px;
     cursor: pointer;
 }
+
+.list-of-games {
+    width: 90%;
+    margin: 50px auto 0 auto;
+}
+
+.list-of-games p {
+    color: #333;
+}
+
+.list-of-games .img-container {
+    width: 50px;
+    height: 70px;
+}
+
+.img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.list-of-games ul li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    border-top: 1px #d8d8d8 solid;
+    padding-top: 20px;
+}
+
+.list-of-games .name {
+    margin-left: 50px;
+    width: 35%;
+    overflow: auto;
+}
+
+.list-of-games .category {
+    width: 12%;
+}
+
+.list-of-games .title-container {
+    font-weight: 900;
+    display: flex;
+    align-items: center;
+}
+
 </style>
