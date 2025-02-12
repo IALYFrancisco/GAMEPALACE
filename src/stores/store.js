@@ -13,3 +13,11 @@ export const userStore = createStore({
     }
   }
 })
+
+export const gamestore = createStore({
+  state(){
+    return {
+      
+    }
+  }
+})
