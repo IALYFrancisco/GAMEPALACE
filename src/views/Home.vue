@@ -33,7 +33,7 @@
 </template>
 
 <script>
-import { userStore, gameStore } from '@/stores/store';
+import { userStore } from '@/stores/store';
 import NoGamesComponent from '@/components/NoGamesComponent.vue'
 export default {
   name: 'HomeView',
@@ -43,8 +43,8 @@ export default {
   data() {
     return {
       _userIsConnected: userStore.state.userIsConnected,
-      _stateOfGetGamesListRequest: gameStore.state.stateOfGetGamesListRequest,
-      _requestIsDoneAndListIsNotEmpty: gameStore.getters.requestIsDoneAndListIsNotEmpty,
+      _stateOfGetGamesListRequest: false,
+      _requestIsDoneAndListIsNotEmpty: false,
       _listOfGames: []
     }
   },
@@ -52,10 +52,7 @@ export default {
     goToLoginRegisterPage() {
       this.$router.push({ name: 'Login-or-register' })
     }
-  },
-  async mounted() {
-    this._listOfGames = await gameStore.state.listOfGames
-  },
+  }
 }
 </script>
 

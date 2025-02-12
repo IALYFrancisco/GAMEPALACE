@@ -1,5 +1,5 @@
 <template>
-  <div id="no-games" v-if="_stateOfGetGamesListRequest && !_requestIsDoneAndListIsNotEmpty">
+  <div id="no-games" v-if="true">
     <h3>No <span class="red">games</span> availables 🎮</h3>
   </div>
 </template>
