@@ -21,94 +21,19 @@
     </ul>
   </nav>
   <NoGamesComponent />
-  <section id="all_games" v-if="_listOfGames.length > 0">
-    <div class="card">
+  <section id="all_games" v-if="!_stateOfGetGamesListRequest || _requestIsDoneAndListIsNotEmpty">
+    <div class="card" v-for="game in _listOfGames">
       <img src="/src/assets/add-to-cart.png" alt="" class="add-to-cart" />
       <img src="/src/assets/view-details.png" alt="" class="view-details" />
       <div class="img">
-        <img src="/src/assets/image (1).gif" alt="" />
-      </div>
-    </div>
-    <div class="card">
-      <div class="img">
-        <img src="/src/assets/image (2).webp" alt="" />
-      </div>
-    </div>
-    <div class="card">
-      <div class="img">
-        <img src="/src/assets/image (3).webp" alt="" />
-      </div>
-    </div>
-    <div class="card">
-      <div class="img">
-        <img src="/src/assets/image (4).jpg" alt="" />
-      </div>
-    </div>
-    <div class="card">
-      <div class="img">
-        <img src="/src/assets/image (5).jpg" alt="" />
-      </div>
-    </div>
-    <div class="card">
-      <div class="img">
-        <img src="/src/assets/image (6).jpg" alt="" />
-      </div>
-    </div>
-    <div class="card">
-      <div class="img">
-        <img src="/src/assets/image (7).jpg" alt="" />
-      </div>
-    </div>
-    <div class="card">
-      <div class="img">
-        <img src="/src/assets/image (8).jpg" alt="" />
-      </div>
-    </div>
-    <div class="card">
-      <div class="img">
-        <img src="/src/assets/image (9).webp" alt="" />
-      </div>
-    </div>
-    <div class="card">
-      <div class="img">
-        <img src="/src/assets/image (10).jpg" alt="" />
-      </div>
-    </div>
-    <div class="card">
-      <div class="img">
-        <img src="/src/assets/image (11).webp" alt="" />
-      </div>
-    </div>
-    <div class="card">
-      <div class="img">
-        <img src="/src/assets/image (12).jpg" alt="" />
-      </div>
-    </div>
-    <div class="card">
-      <div class="img">
-        <img src="/src/assets/image (13).webp" alt="" />
-      </div>
-    </div>
-    <div class="card">
-      <div class="img">
-        <img src="/src/assets/image (14).jpg" alt="" />
-      </div>
-    </div>
-    <div class="card">
-      <div class="img">
-        <img src="/src/assets/image (15).jpg" alt="" />
-      </div>
-    </div>
-    <div class="card">
-      <div class="img">
-        <img src="/src/assets/image (16).jpg" alt="" />
+        <img :src="game.poster_file_url" alt="" />
       </div>
     </div>
   </section>
 </template>
 
 <script>
-import { gameStore, userStore } from '@/stores/store';
+import { userStore, gameStore } from '@/stores/store';
 import NoGamesComponent from '@/components/NoGamesComponent.vue'
 export default {
   name: 'HomeView',
@@ -118,7 +43,9 @@ export default {
   data() {
     return {
       _userIsConnected: userStore.state.userIsConnected,
-      _listOfGames: gameStore.state.listOfGames
+      _stateOfGetGamesListRequest: gameStore.state.stateOfGetGamesListRequest,
+      _requestIsDoneAndListIsNotEmpty: gameStore.getters.requestIsDoneAndListIsNotEmpty,
+      _listOfGames: []
     }
   },
   methods: {
@@ -126,10 +53,9 @@ export default {
       this.$router.push({ name: 'Login-or-register' })
     }
   },
-  mounted(){
-    gameStore.commit('getListOfGames')
-    console.log(this._listOfGames)
-  }
+  async mounted() {
+    this._listOfGames = await gameStore.state.listOfGames
+  },
 }
 </script>
 
