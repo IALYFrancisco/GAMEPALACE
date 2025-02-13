@@ -26,11 +26,7 @@
     <section class="action">
         <button @click="showAddingForm">add game</button>
     </section>
-    <section class="loader" v-if="!requestIsDone">
-        <div class="loader-container">
-            <img src="/src/assets/loader.gif" alt="icon de chargement">
-        </div>
-    </section>
+    <LoaderComponent  v-if="!requestIsDone" />
     <section class="list-of-games" v-if="requestIsDone && listOfGames.length > 0">
         <ul>
             <li class="title-container">
@@ -59,6 +55,7 @@
 
 <script>
 import axios from 'axios'
+import LoaderComponent from '@/components/Others/LoaderComponent.vue'
 export default {
     name: "GamesComponent",
     data(){
@@ -73,6 +70,10 @@ export default {
             requestIsDone: false
         }
     },
+    components: {
+        LoaderComponent
+    }
+    ,
     methods: {
         async addGame(){
             try {
@@ -116,7 +117,6 @@ export default {
     },
     async mounted(){
         await this.getListOfGames()
-        console.log(this.listOfGames)
     }
 }
 </script>
@@ -296,14 +296,6 @@ form button {
     font-weight: 900;
     display: flex;
     align-items: center;
-}
-
-.loader {
-    width: 100%;
-    height: 300px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 </style>

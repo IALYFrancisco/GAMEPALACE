@@ -20,9 +20,10 @@
       <li>Jeux à venir</li>
     </ul>
   </nav>
-  <NoGamesComponent />
-  <section id="all_games" v-if="true">
-    <div class="card" v-for="game in _listOfGames">
+  <LoaderComponent v-if="!requestIsDone"/>
+  <NoGamesComponent v-if="requestIsDone && listOfGames.length == 0"/>
+  <section id="all_games" v-if="requestIsDone && listOfGames.length > 0">
+    <div class="card" v-for="game in listOfGames">
       <img src="/src/assets/add-to-cart.png" alt="" class="add-to-cart" />
       <img src="/src/assets/view-details.png" alt="" class="view-details" />
       <div class="img">
@@ -35,24 +36,49 @@
 <script>
 import { userStore } from '@/stores/store';
 import NoGamesComponent from '@/components/NoGamesComponent.vue'
+import LoaderComponent from '@/components/Others/LoaderComponent.vue'
+import axios from 'axios'
+
 export default {
   name: 'HomeView',
   components: {
-    NoGamesComponent
+    NoGamesComponent,
+    LoaderComponent
   },
   data() {
     return {
       _userIsConnected: userStore.state.userIsConnected,
-      _stateOfGetGamesListRequest: false,
-      _requestIsDoneAndListIsNotEmpty: false,
-      _listOfGames: []
+      listOfGames: [],
+      requestIsDone: false
     }
   },
   methods: {
     goToLoginRegisterPage() {
       this.$router.push({ name: 'Login-or-register' })
+    },
+    async getListOfGames(){
+      try {
+        await axios({
+          method: 'GET',
+          url: `${import.meta.env.VITE_BASE_URL}/game`
+        }).then((response) => {
+          if(response.status == 200){
+            this.listOfGames = response.data
+            console.log(this.listOfGames)
+          }else if(response.status == 204){
+            console.log('Aucun élément dans la liste de jeux')
+          }
+        }).catch(error => console.log(`Erreur de récupération de liste de jeux: ${error}`))
+      }catch(error){
+        console.log(`Erreur de récupération de liste de jeux: ${error}`)
+      }finally {
+        this.requestIsDone = true
+      }
     }
-  }
+  },
+  async mounted() {
+    await this.getListOfGames()
+  },
 }
 </script>
 
