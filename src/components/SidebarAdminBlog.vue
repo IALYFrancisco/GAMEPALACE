@@ -9,13 +9,13 @@
     <div class="sidebar-body">
       <ul>
         <li>
-          <router-link :to="{name: 'Games'}">Games</router-link>
+          <router-link :to="{ name: 'Games' }">Games</router-link>
         </li>
         <li>
-          <router-link :to="{name: 'Users'}">Users</router-link>
+          <router-link :to="{ name: 'Users' }">Users</router-link>
         </li>
         <li>
-          <router-link :to="{name: 'Settings'}">Settings</router-link>
+          <router-link :to="{ name: 'Settings' }">Settings</router-link>
         </li>
       </ul>
     </div>
@@ -72,7 +72,6 @@ div.sidebar div.sidebar-body ul li {
 ul li a {
   color: white;
 }
-
 </style>
 
 <script>
