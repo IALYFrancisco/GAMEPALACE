@@ -12,7 +12,7 @@ export const userStore = createStore({
     setUserIsConnected(state) {
       state.connected = true
     },
-    logOut(state){
+    logOut(state) {
       state.connected = false
       console.log(state.connected)
     }

@@ -24,7 +24,12 @@
   <NoGamesComponent v-if="requestIsDone && listOfGames.length == 0" />
   <section id="all_games" v-if="requestIsDone && listOfGames.length > 0">
     <div class="card" v-for="game in listOfGames">
-      <img src="/src/assets/add-to-cart.png" alt="" class="add-to-cart" @click="addToCart(game._id)" />
+      <img
+        src="/src/assets/add-to-cart.png"
+        alt=""
+        class="add-to-cart"
+        @click="addToCart(game._id)"
+      />
       <img src="/src/assets/view-details.png" alt="" class="view-details" />
       <div class="img">
         <img :src="game.poster_file_url" alt="" />
@@ -76,19 +81,17 @@ export default {
         this.requestIsDone = true
       }
     },
-    _addToCart(gameId){
-        userStore.state.cart.push(gameId)
-        window.alert("Ajouté au panier 🛒")
-        console.log(userStore.state.cart)
+    _addToCart(gameId) {
+      userStore.state.cart.push(gameId)
+      window.alert('Ajouté au panier 🛒')
+      console.log(userStore.state.cart)
     },
-    addToCart(gameId){
+    addToCart(gameId) {
       this._userIsConnected
-      ?
-      this._addToCart(gameId)  
-      :
-      window.alert("Vous devez vous connecter pour faire un ajout au panier 🎫🎫")
+        ? this._addToCart(gameId)
+        : window.alert('Vous devez vous connecter pour faire un ajout au panier 🎫🎫')
     },
-    _logOut(){
+    _logOut() {
       userStore.commit('logOut')
     }
   },
