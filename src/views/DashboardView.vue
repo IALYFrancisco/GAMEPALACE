@@ -2,14 +2,14 @@
   <div class="container">
     <SidebarAdminBlog></SidebarAdminBlog>
     <section class="dynamicPartContainer">
-      <RouterView/>
+      <RouterView />
     </section>
   </div>
 </template>
 
 <script>
 import SidebarAdminBlog from '@/components/SidebarAdminBlog.vue'
-import { RouterView } from 'vue-router';
+import { RouterView } from 'vue-router'
 export default {
   name: 'DashboardView',
 

@@ -103,7 +103,7 @@
 
 <script>
 import axios from 'axios'
-import {userStore} from '@/stores/store';
+import { userStore } from '@/stores/store'
 
 export default {
   name: 'login-or-register',
@@ -139,7 +139,7 @@ export default {
                 window.alert(
                   `Congratulation 🎉, you are signed in. Now, you'll be redirected to homapage!`
                 )
-                userStore.commit("setUserIsConnected")
+                userStore.commit('setUserIsConnected')
                 this.$router.push({ name: 'Home' })
                 // ici le statut 204 signifie que l'utilisateur existe déjà dans la liste des utilisateurs
               } else if (response.status === 204) {
@@ -165,11 +165,11 @@ export default {
           url: `${import.meta.env.VITE_BASE_URL}/user/login?email=${this.userLoginInfo.email}&password=${this.userLoginInfo.password}`,
           headers: ['Content-Type', 'application/json']
         }).then((response) => {
-          if(response.status == 200){
+          if (response.status == 200) {
             userStore.commit('setUserIsConnected')
-            this.$router.push({name: 'Home'})
-          }else if(response.status == 204){
-            window.alert("Email or password incorrect ⛔⛔")
+            this.$router.push({ name: 'Home' })
+          } else if (response.status == 204) {
+            window.alert('Email or password incorrect ⛔⛔')
           }
           console.log(response)
         })
