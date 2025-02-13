@@ -33,9 +33,8 @@
 </template>
 
 <script>
-import { gamestore, userStore } from '@/stores/store';
+import { userStore } from '@/stores/store';
 import NoGamesComponent from '@/components/NoGamesComponent.vue'
-import { mapGetters } from 'vuex';
 export default {
   name: 'HomeView',
   components: {
@@ -53,11 +52,7 @@ export default {
     goToLoginRegisterPage() {
       this.$router.push({ name: 'Login-or-register' })
     }
-  },
-  mounted(){
-    let variable = this.$store.getters['gameStore/sendMssg']
-    console.log(variable)
-  },
+  }
 }
 </script>
 

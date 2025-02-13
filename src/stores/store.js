@@ -13,24 +13,3 @@ export const userStore = createStore({
     }
   }
 })
-
-export const gamestore = createStore({
-  state(){
-    return {
-      listOfGames: []
-    }
-  },
-  getters: {
-    async getListOfGames(state){
-      await axios({
-        method: 'GET',
-        url: `${import.meta.env.VITE_BASE_URL}/game`
-      }).then((response)=>{
-        return response.data
-      })
-    },
-    sendMessage(){
-      return "Hello message"
-    }
-  }
-})
