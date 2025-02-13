@@ -4,12 +4,17 @@ import { createStore } from 'vuex'
 export const userStore = createStore({
   state() {
     return {
-      userIsConnected: false
+      connected: false,
+      cart: []
     }
   },
   mutations: {
     setUserIsConnected(state) {
-      state.userIsConnected = true
+      state.connected = true
+    },
+    logOut(state){
+      state.connected = false
+      console.log(state.connected)
     }
   }
 })
