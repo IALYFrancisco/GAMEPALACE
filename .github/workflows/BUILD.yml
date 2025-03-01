@@ -1,0 +1,25 @@
+# Configuration de build du projet lors de push sur la branche develop
+
+# Nom du workflow
+name: Build project
+
+# Spécification du déclencheur et de la branche
+on:
+  push:
+    branches:
+      - develop
+
+# Le travail à faire
+jobs:
+  Build-project:
+  runs-on: ubuntu-latest
+  steps:
+      
+      - name: Configuration de node.js
+        runs:
+
+      - name: Récupération de la code source du projet
+        runs: actions/checkout@v3
+
+      - name: Exécution de la commande de build avec npm
+        runs: npm run build
