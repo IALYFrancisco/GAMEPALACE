@@ -13,13 +13,22 @@ on:
 jobs:
   Build-project:
     runs-on: ubuntu-latest
+
     steps:
       
       - name: Configuration de node.js
-        run:
+        uses : actions/setup-node@v3
+        with:
+          node-version: '22'
 
       - name: Récupération de la code source du projet
         uses: actions/checkout@v4
+
+      - name: Installation des dépendances
+        run: npm install
+
+      - name: Formatage de code avec Prettier
+        run: npm run format
 
       - name: Exécution de la commande de build avec npm
         run: npm run build
