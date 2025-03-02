@@ -45,8 +45,8 @@
         <p class="name">{{ game.name }}</p>
         <p class="category">{{ game.category }}</p>
         <div class="actions">
-          <img src="" alt="" />
-          <img src="" alt="" />
+          <img src="/src/assets/edit.png" alt="" />
+          <img src="/src/assets/trash.png" alt="" />
         </div>
       </li>
     </ul>
@@ -308,5 +308,14 @@ form button {
   font-weight: 900;
   display: flex;
   align-items: center;
+}
+
+.actions img {
+  width: 25px;
+  cursor: pointer;
+}
+
+.actions img:last-child {
+  margin-left: 15px;
 }
 </style>

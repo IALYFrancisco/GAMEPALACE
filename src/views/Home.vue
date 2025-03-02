@@ -9,7 +9,7 @@
     <div class="header-actions">
       <img src="/src/assets/cart.png" alt="" id="cart" v-if="_userIsConnected" />
       <button @click="goToLoginRegisterPage" v-if="!_userIsConnected">Login</button>
-      <button v-if="_userIsConnected">Log out</button>
+      <button v-if="_userIsConnected" @click="_logOut">Log out</button>
     </div>
   </header>
   <nav class="home">
@@ -24,7 +24,12 @@
   <NoGamesComponent v-if="requestIsDone && listOfGames.length == 0" />
   <section id="all_games" v-if="requestIsDone && listOfGames.length > 0">
     <div class="card" v-for="game in listOfGames">
-      <img src="/src/assets/add-to-cart.png" alt="" class="add-to-cart" />
+      <img
+        src="/src/assets/add-to-cart.png"
+        alt=""
+        class="add-to-cart"
+        @click="addToCart(game._id)"
+      />
       <img src="/src/assets/view-details.png" alt="" class="view-details" />
       <div class="img">
         <img :src="game.poster_file_url" alt="" />
@@ -47,7 +52,7 @@ export default {
   },
   data() {
     return {
-      _userIsConnected: userStore.state.userIsConnected,
+      _userIsConnected: userStore.state.connected,
       listOfGames: [],
       requestIsDone: false
     }
@@ -65,7 +70,6 @@ export default {
           .then((response) => {
             if (response.status == 200) {
               this.listOfGames = response.data
-              console.log(this.listOfGames)
             } else if (response.status == 204) {
               console.log('Aucun élément dans la liste de jeux')
             }
@@ -76,6 +80,19 @@ export default {
       } finally {
         this.requestIsDone = true
       }
+    },
+    _addToCart(gameId) {
+      userStore.state.cart.push(gameId)
+      window.alert('Ajouté au panier 🛒')
+      console.log(userStore.state.cart)
+    },
+    addToCart(gameId) {
+      this._userIsConnected
+        ? this._addToCart(gameId)
+        : window.alert('Vous devez vous connecter pour faire un ajout au panier 🎫🎫')
+    },
+    _logOut() {
+      userStore.commit('logOut')
     }
   },
   async mounted() {
