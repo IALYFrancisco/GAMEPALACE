@@ -7,9 +7,9 @@
       </div>
     </router-link>
     <div class="header-actions">
-      <img src="/src/assets/cart.png" alt="" id="cart" v-if="_userIsConnected" />
-      <button @click="goToLoginRegisterPage" v-if="!_userIsConnected">Login</button>
-      <button v-if="_userIsConnected" @click="_logOut">Log out</button>
+      <img src="/src/assets/cart.png" alt="" id="cart" v-if="UuserIsConnected" />
+      <button @click="goToLoginRegisterPage" v-if="!UuserIsConnected">Login</button>
+      <button v-if="UuserIsConnected" @click="_logOut">Log out</button>
     </div>
   </header>
   <nav class="home">
@@ -23,14 +23,16 @@
   <LoaderComponent v-if="!requestIsDone" />
   <NoGamesComponent v-if="requestIsDone && listOfGames.length == 0" />
   <section id="all_games" v-if="requestIsDone && listOfGames.length > 0">
-    <div class="card" v-for="game in listOfGames">
+    <div class="card" v-for="game in listOfGames" :key="game._id">
       <img
         src="/src/assets/add-to-cart.png"
         alt=""
         class="add-to-cart"
         @click="addToCart(game._id)"
       />
-      <img src="/src/assets/view-details.png" alt="" class="view-details" />
+      <router-link :to="{name: 'Detailsgame', params: {_id: game._id}}">
+        <img src="/src/assets/view-details.png" alt="" class="view-details" />
+      </router-link>
       <div class="img">
         <img :src="game.poster_file_url" alt="" />
       </div>
@@ -52,7 +54,7 @@ export default {
   },
   data() {
     return {
-      _userIsConnected: userStore.state.connected,
+      UuserIsConnected: userStore.state.connected,
       listOfGames: [],
       requestIsDone: false
     }
@@ -87,7 +89,7 @@ export default {
       console.log(userStore.state.cart)
     },
     addToCart(gameId) {
-      this._userIsConnected
+      this.UuserIsConnected
         ? this._addToCart(gameId)
         : window.alert('Vous devez vous connecter pour faire un ajout au panier 🎫🎫')
     },
@@ -101,7 +103,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 * {
   margin: 0;
   padding: 0;
@@ -242,7 +244,7 @@ section#all_games div.card {
   z-index: 1;
 }
 
-.card > img.view-details {
+.card > a img.view-details {
   width: 30px;
   position: absolute;
   top: 60%;
@@ -251,7 +253,7 @@ section#all_games div.card {
   transition: 0.5s;
 }
 
-.card:hover > img.view-details {
+.card:hover > a img.view-details {
   opacity: 1;
   transition: 0.5s;
   z-index: 1;
