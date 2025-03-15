@@ -30,7 +30,7 @@
         class="add-to-cart"
         @click="addToCart(game._id)"
       />
-      <router-link :to="{name: 'Detailsgame', params: {_id: game._id}}">
+      <router-link :to="{name: 'Details-game', params: {_id: game._id}}">
         <img src="/src/assets/view-details.png" alt="" class="view-details" />
       </router-link>
       <div class="img">
