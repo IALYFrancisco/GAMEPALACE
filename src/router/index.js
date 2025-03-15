@@ -30,7 +30,7 @@ const router = createRouter({
           component: () => import('@/components/Dashboard/SettingsComponent.vue'),
         }
       ],
-      meta: {title: 'Dashboard', requiresAuth: true}
+      // meta: {title: 'Dashboard', requiresAuth: true}
     },
     {
       path: '/login-or-register',
