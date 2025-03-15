@@ -6,7 +6,8 @@ const router = createRouter({
     {
       path: '/',
       name: 'Home',
-      component: () => import('../views/Home.vue')
+      component: () => import('../views/Home.vue'),
+      meta: { title: 'Accueil' }
     },
     {
       path: '/dashboard',
@@ -26,19 +27,24 @@ const router = createRouter({
         {
           path: 'settings',
           name: 'Settings',
-          component: () => import('@/components/Dashboard/SettingsComponent.vue')
+          component: () => import('@/components/Dashboard/SettingsComponent.vue'),
         }
-      ]
+      ],
+      meta: {
+        title: 'Dashboard'
+      }
     },
     {
       path: '/login-or-register',
       name: 'Login-or-register',
-      component: () => import('../views/LoginOrRegisterView.vue')
+      component: () => import('../views/LoginOrRegisterView.vue'),
+      meta: {title: 'Authentification'}
     },
     {
       path: '/game/:_id',
       name: 'Details-game',
-      component: () => import('../views/DetailsGameView.vue')
+      component: () => import('../views/DetailsGameView.vue'),
+      meta: {title: 'Détails'}
     }
   ]
 })
