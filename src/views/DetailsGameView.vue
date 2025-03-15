@@ -7,9 +7,9 @@
       </div>
     </router-link>
     <div class="header-actions">
-      <img src="/src/assets/cart.png" alt="" id="cart" v-if="UuserIsConnected" />
-      <button @click="goToLoginRegisterPage" v-if="!UuserIsConnected">Login</button>
-      <button v-if="UuserIsConnected" @click="_logOut">Log out</button>
+      <img src="/src/assets/cart.png" alt="" id="cart" v-if="UserIsConnected" />
+      <button @click="goToLoginRegisterPage" v-if="!UserIsConnected">Login</button>
+      <button v-if="UserIsConnected" @click="_logOut">Log out</button>
     </div>
   </header>
   <main>
@@ -30,7 +30,7 @@ export default {
     data(){
         return {
             gameId: this.$route.params._id,
-            UuserIsConnected: userStore.state.connected,
+            UserIsConnected: userStore.state.connected,
             game: ''
         }
     },
