@@ -41,7 +41,7 @@
 </template>
 
 <script>
-import { userStore } from '@/stores/store'
+import { authenticationStore } from '@/stores/store'
 import NoGamesComponent from '@/components/NoGamesComponent.vue'
 import LoaderComponent from '@/components/Others/LoaderComponent.vue'
 import axios from 'axios'
@@ -54,7 +54,7 @@ export default {
   },
   data() {
     return {
-      UserIsConnected: userStore.getters.verifyUserIsConnected,
+      UserIsConnected: authenticationStore.getters.userIsConnected,
       listOfGames: [],
       requestIsDone: false
     }
@@ -83,18 +83,10 @@ export default {
         this.requestIsDone = true
       }
     },
-    _addToCart(gameId) {
-      userStore.state.cart.push(gameId)
-      window.alert('Ajouté au panier 🛒')
-      console.log(userStore.state.cart)
-    },
     addToCart(gameId) {
       this.UserIsConnected
         ? this._addToCart(gameId)
         : window.alert('Vous devez vous connecter pour faire un ajout au panier 🎫🎫')
-    },
-    _logOut() {
-      userStore.commit('logOut')
     }
   },
   async mounted() {
