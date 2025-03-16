@@ -87,6 +87,10 @@ export default {
       this.UserIsConnected
         ? this._addToCart(gameId)
         : window.alert('Vous devez vous connecter pour faire un ajout au panier 🎫🎫')
+    },
+    _logOut(){
+      authenticationStore.commit('setUserIsDisconnected')
+      this.UserIsConnected = authenticationStore.getters.userIsConnected
     }
   },
   async mounted() {

@@ -103,7 +103,7 @@
 
 <script>
 import axios from 'axios'
-import { userStore } from '@/stores/store'
+import { authenticationStore } from '@/stores/store'
 
 export default {
   name: 'login-or-register',
@@ -139,7 +139,7 @@ export default {
                 window.alert(
                   `Congratulation 🎉, you are signed in. Now, you'll be redirected to homapage!`
                 )
-                userStore.commit('setUserIsConnected')
+                authenticationStore.commit('setUserIsConnected')
                 this.$router.push({ name: 'Home' })
                 // ici le statut 204 signifie que l'utilisateur existe déjà dans la liste des utilisateurs
               } else if (response.status === 204) {
@@ -166,9 +166,7 @@ export default {
           headers: ['Content-Type', 'application/json']
         }).then((response) => {
           if (response.status == 200) {
-            userStore.commit('setUserIsConnected')
-            localStorage.setItem("user", JSON.stringify(response.data.user))
-            localStorage.setItem("accessToken", JSON.stringify(response.data.accessToken))
+            authenticationStore.commit('setUserIsConnected')
             this.$router.push({ name: 'Home' })
           } else if (response.status == 204) {
             window.alert('Email or password incorrect ⛔⛔')
