@@ -7,9 +7,9 @@
       </div>
     </router-link>
     <div class="header-actions">
-      <img src="/src/assets/cart.png" alt="" id="cart" v-if="UuserIsConnected" />
-      <button @click="goToLoginRegisterPage" v-if="!UuserIsConnected">Login</button>
-      <button v-if="UuserIsConnected" @click="_logOut">Log out</button>
+      <img src="/src/assets/cart.png" alt="" id="cart" v-if="UserIsConnected" />
+      <button @click="goToLoginRegisterPage" v-if="!UserIsConnected">Login</button>
+      <button v-if="UserIsConnected" @click="_logOut">Log out</button>
     </div>
   </header>
   <nav class="home">
@@ -54,7 +54,7 @@ export default {
   },
   data() {
     return {
-      UuserIsConnected: userStore.state.connected,
+      UserIsConnected: userStore.getters.verifyUserIsConnected,
       listOfGames: [],
       requestIsDone: false
     }
@@ -89,7 +89,7 @@ export default {
       console.log(userStore.state.cart)
     },
     addToCart(gameId) {
-      this.UuserIsConnected
+      this.UserIsConnected
         ? this._addToCart(gameId)
         : window.alert('Vous devez vous connecter pour faire un ajout au panier 🎫🎫')
     },
