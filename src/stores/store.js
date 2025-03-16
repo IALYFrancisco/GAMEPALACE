@@ -3,6 +3,13 @@ import { createStore } from 'vuex'
 export const userStore = createStore({
   state() {
     return {
+      user: {
+        isConnected: false,
+        info: {
+          name: "",
+          email: "",
+        }
+      },
       connected: false,
       cart: []
     }

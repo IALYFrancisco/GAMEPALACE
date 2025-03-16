@@ -171,7 +171,6 @@ export default {
           } else if (response.status == 204) {
             window.alert('Email or password incorrect ⛔⛔')
           }
-          console.log(response)
         })
       } catch (error) {
         console.log(`Erreur de connexion de l'utilisateur: ${error}`)
