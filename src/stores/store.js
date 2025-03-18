@@ -6,17 +6,16 @@ export const authenticationStore = createStore({
       token: localStorage.getItem('token')
     }
   },
-  getters: {
-    userIsConnected : (state) => !!state.token
-  },
-  mutations:{
-    setUserIsConnected(state){
-      localStorage.setItem("_isConnected", true)
-      state.user.isConnected = JSON.parse(localStorage.getItem("_isConnected"))
+  mutations: {
+    getTokenLatestValue(state){
+      state.token = localStorage.getItem('token')
     },
-    setUserIsDisconnected(state){
-      localStorage.setItem("_isConnected", false)
-      state.user.isConnected = JSON.parse(localStorage.getItem("_isConnected"))
+    logOut(state){
+      localStorage.removeItem('token')
+      state.token = null
     }
+  },
+  getters: {
+    userIsConnected: (state) => !!state.token
   }
 })

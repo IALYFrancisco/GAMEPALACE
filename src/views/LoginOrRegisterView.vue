@@ -166,7 +166,7 @@ export default {
         }).then((response) => {
           if (response.status == 200) {
             localStorage.setItem('token', response.data.accessToken)
-            authenticationStore.commit('setUserIsConnected')
+            authenticationStore.commit('getTokenLatestValue')
             this.$router.push({ name: 'Home' })
           } else if (response.status == 204) {
             window.alert('Email or password incorrect ⛔⛔')

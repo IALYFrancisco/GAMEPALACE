@@ -35,13 +35,15 @@ export default {
         }
     },
     methods: {
-        goToLoginRegisterPage() {
-            this.$router.push({ name: 'Login-or-register' })
-        },
-        _logOut(){
-          authenticationStore.commit('setUserIsDisconnected')
-          this.UserIsConnected = authenticationStore.getters.userIsConnected
-        }
+      goToLoginRegisterPage() {
+          this.$router.push({ name: 'Login-or-register' })
+      },
+      _logOut(){
+        authenticationStore.commit('logOut')
+        authenticationStore.commit('getTokenLatestValue')
+        this.UserIsConnected = authenticationStore.getters.userIsConnected
+        this.$router.push({ name: 'Home' })
+      }
     },
     async mounted(){
         await axios({
