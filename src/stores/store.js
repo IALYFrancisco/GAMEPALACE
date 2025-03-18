@@ -4,13 +4,13 @@ export const authenticationStore = createStore({
   state(){
     return {
       user: {
-        isConnected: localStorage.getItem("_isConnected")
+        isConnected: JSON.parse(localStorage.getItem("_isConnected"))
       }
     }
   },
   getters: {
     userIsConnected(state){
-      state.user.isConnected = localStorage.getItem("_isConnected")
+      state.user.isConnected = JSON.parse(localStorage.getItem("_isConnected"))
       if(state.user.isConnected){
         return true
       }else{
@@ -21,11 +21,11 @@ export const authenticationStore = createStore({
   mutations:{
     setUserIsConnected(state){
       localStorage.setItem("_isConnected", true)
-      state.user.isConnected = localStorage.getItem("_isConnected")
+      state.user.isConnected = JSON.parse(localStorage.getItem("_isConnected"))
     },
     setUserIsDisconnected(state){
       localStorage.setItem("_isConnected", false)
-      state.user.isConnected = localStorage.getItem("_isConnected")
+      state.user.isConnected = JSON.parse(localStorage.getItem("_isConnected"))
     }
   }
 })
