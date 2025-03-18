@@ -22,7 +22,6 @@
 
 <script>
 
-import { userStore } from '@/stores/store';
 import axios from 'axios';
 
 export default {
@@ -30,7 +29,7 @@ export default {
     data(){
         return {
             gameId: this.$route.params._id,
-            UserIsConnected: userStore.state.connected,
+            UserIsConnected: false,
             game: ''
         }
     },
