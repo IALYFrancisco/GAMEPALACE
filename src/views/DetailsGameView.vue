@@ -23,13 +23,14 @@
 <script>
 
 import axios from 'axios';
+import { authenticationStore } from '@/stores/store';
 
 export default {
     name: "DetailsGameView",
     data(){
         return {
             gameId: this.$route.params._id,
-            UserIsConnected: false,
+            UserIsConnected: authenticationStore.getters.userIsConnected,
             game: ''
         }
     },
@@ -37,6 +38,10 @@ export default {
         goToLoginRegisterPage() {
             this.$router.push({ name: 'Login-or-register' })
         },
+        _logOut(){
+          authenticationStore.commit('setUserIsDisconnected')
+          this.UserIsConnected = authenticationStore.getters.userIsConnected
+        }
     },
     async mounted(){
         await axios({
