@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import { authenticationStore } from '@/stores/store'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -45,6 +46,14 @@ const router = createRouter({
       meta: {title: 'Détails'}
     }
   ]
+})
+
+router.beforeEach((to, from, next)=>{
+  if(to.meta.requiresAuth && !authenticationStore.getters.userIsConnected){
+    next({name: 'Home'})
+  }else{
+    next()
+  }
 })
 
 export default router
