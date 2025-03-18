@@ -145,7 +145,6 @@ export default {
               } else if (response.status === 204) {
                 window.alert(`An user with email ${this.userSignInInfo.email} already exist 🆔🆔!`)
               }
-              console.log(response)
             })
             .catch((error) => {
               console.log(`Erreur d'inscription: ${error}`)

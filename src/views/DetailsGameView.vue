@@ -42,7 +42,7 @@ export default {
         await axios({
             method: 'GET',
             url: `${import.meta.env.VITE_BASE_URL}/game?_id=${this.$route.params._id}`
-        }).then((response) => { this.game = response; console.log(response) }).catch(error=>error)
+        }).then((response) => { this.game = response;}).catch(error=>error)
     }
 }
 
