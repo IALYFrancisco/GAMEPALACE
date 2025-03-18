@@ -3,20 +3,11 @@ import { createStore } from "vuex";
 export const authenticationStore = createStore({
   state(){
     return {
-      user: {
-        isConnected: JSON.parse(localStorage.getItem("_isConnected"))
-      }
+      token: localStorage.getItem('token')
     }
   },
   getters: {
-    userIsConnected(state){
-      state.user.isConnected = JSON.parse(localStorage.getItem("_isConnected"))
-      if(state.user.isConnected){
-        return true
-      }else{
-        return false
-      }
-    }
+    userIsConnected : (state) => !!state.token
   },
   mutations:{
     setUserIsConnected(state){

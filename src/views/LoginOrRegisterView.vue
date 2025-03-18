@@ -165,6 +165,7 @@ export default {
           headers: ['Content-Type', 'application/json']
         }).then((response) => {
           if (response.status == 200) {
+            localStorage.setItem('token', response.data.accessToken)
             authenticationStore.commit('setUserIsConnected')
             this.$router.push({ name: 'Home' })
           } else if (response.status == 204) {
