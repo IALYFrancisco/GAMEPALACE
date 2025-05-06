@@ -77,10 +77,10 @@
         <p>Sign up</p>
 
         <div class="form_element">
-          <label for="usermail">Email:</label>
+          <label for="email">Email:</label>
           <input
             type="email"
-            name="usermail"
+            name="email"
             placeholder="exemple@gmail.com"
             required
             v-model="userLoginInfo.email"
@@ -88,8 +88,8 @@
         </div>
 
         <div class="form_element">
-          <label for="userpassword">Password:</label>
-          <input type="password" name="userpassword" required v-model="userLoginInfo.password" />
+          <label for="password">Password:</label>
+          <input type="password" name="password" required v-model="userLoginInfo.password" />
         </div>
 
         <div class="form_action">
@@ -103,7 +103,7 @@
 
 <script>
 import axios from 'axios'
-import { userStore } from '@/stores/store'
+import { authenticationStore } from '@/stores/store'
 
 export default {
   name: 'login-or-register',
@@ -139,13 +139,12 @@ export default {
                 window.alert(
                   `Congratulation 🎉, you are signed in. Now, you'll be redirected to homapage!`
                 )
-                userStore.commit('setUserIsConnected')
+                authenticationStore.commit('setUserIsConnected')
                 this.$router.push({ name: 'Home' })
                 // ici le statut 204 signifie que l'utilisateur existe déjà dans la liste des utilisateurs
               } else if (response.status === 204) {
                 window.alert(`An user with email ${this.userSignInInfo.email} already exist 🆔🆔!`)
               }
-              console.log(response)
             })
             .catch((error) => {
               console.log(`Erreur d'inscription: ${error}`)
@@ -158,20 +157,25 @@ export default {
       }
     },
 
-    async userLogin() {
+    async userLogin(){
       try {
         await axios({
           method: 'POST',
           url: `${import.meta.env.VITE_BASE_URL}/user/login?email=${this.userLoginInfo.email}&password=${this.userLoginInfo.password}`,
-          headers: ['Content-Type', 'application/json']
+          withCredentials: true,
+          headers: {
+            "Accept" : "*/*",
+            "Accept-Encoding" : "gzip, deflate, br",
+            "Connection" : "keep-alive"
+          }
         }).then((response) => {
           if (response.status == 200) {
-            userStore.commit('setUserIsConnected')
+            authenticationStore.commit('SET_USER', response.data.user[0])
+            authenticationStore.commit('SET_TOKEN', response.data.accessToken)
             this.$router.push({ name: 'Home' })
           } else if (response.status == 204) {
             window.alert('Email or password incorrect ⛔⛔')
           }
-          console.log(response)
         })
       } catch (error) {
         console.log(`Erreur de connexion de l'utilisateur: ${error}`)
