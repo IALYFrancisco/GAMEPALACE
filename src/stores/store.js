@@ -8,12 +8,22 @@ export const authenticationStore = createStore({
     }
   },
   mutations: {
+    SET_USER(state, user){
+      state.user = user
+      localStorage.setItem('user', JSON.stringify(user))
+    },
+    SET_TOKEN(state, token){
+      state.token = token
+      localStorage.setItem('token', token)
+    },
     getTokenLatestValue(state){
       state.token = localStorage.getItem('token')
     },
-    logOut(state){
-      localStorage.removeItem('token')
+    LOGOUT(state){
+      state.user = null
       state.token = null
+      localStorage.removeItem('user')
+      localStorage.removeItem('token')
     }
   },
   getters: {
