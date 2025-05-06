@@ -33,6 +33,19 @@ export const authenticationStore = createStore({
         }).then(()=>{
           commit('_LOGOUT')
         }).catch((err)=>{ console.log(`Error user logout: error serveur == ${err}`) })
+    },
+    async REFRESHTOKEN({commit}){
+      try{
+        await axios({
+          method: 'POST',
+          url: `${import.meta.env.VITE_BASE_URL}/user/refresh-token`,
+          data: {}
+        }).then((response)=>{
+          commit('SET_TOKEN', response.data.accessToken)
+        })
+      }catch(err){
+        console.log("Error refresh token: "+err)
+      }
     }
   },
   getters: {
