@@ -164,8 +164,12 @@ export default {
           url: `${import.meta.env.VITE_BASE_URL}/user/login?email=${this.userLoginInfo.email}&password=${this.userLoginInfo.password}`,
         }).then((response) => {
           if (response.status == 200) {
-            localStorage.setItem('token', response.data.accessToken)
-            authenticationStore.commit('getTokenLatestValue')
+            this.token = response.data.accessToken
+            localStorage.setItem('token', this.token)
+            this.user = response.data.user[0]
+            localStorage.setItem('user', JSON.stringify(this.user))
+            // localStorage.setItem('token', response.data.accessToken)
+            // authenticationStore.commit('getTokenLatestValue')
             this.$router.push({ name: 'Home' })
           } else if (response.status == 204) {
             window.alert('Email or password incorrect ⛔⛔')
