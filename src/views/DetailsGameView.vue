@@ -39,8 +39,7 @@ export default {
           this.$router.push({ name: 'Login-or-register' })
       },
       _logOut(){
-        authenticationStore.commit('logOut')
-        authenticationStore.commit('getTokenLatestValue')
+        authenticationStore.dispatch('LOGOUT')
         this.UserIsConnected = authenticationStore.getters.userIsConnected
         this.$router.push({ name: 'Home' })
       }
