@@ -1,3 +1,4 @@
+import axios from "axios";
 import { createStore } from "vuex";
 
 export const authenticationStore = createStore({
@@ -16,11 +17,22 @@ export const authenticationStore = createStore({
       state.token = token
       localStorage.setItem('token', token)
     },
-    LOGOUT(state){
+    _LOGOUT(state){
       state.user = null
       state.token = null
       localStorage.removeItem('user')
       localStorage.removeItem('token')
+    }
+  },
+  actions: {
+    async LOGOUT({commit}){
+        await axios({
+          method: 'POST',
+          url: `${import.meta.env.VITE_BASE_URL}/user/logout`,
+          data: {}
+        }).then(()=>{
+          commit('_LOGOUT')
+        }).catch((err)=>{ console.log(`Error user logout: error serveur == ${err}`) })
     }
   },
   getters: {
