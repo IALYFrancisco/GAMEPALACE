@@ -162,7 +162,6 @@ export default {
         await axios({
           method: 'POST',
           url: `${import.meta.env.VITE_BASE_URL}/user/login?email=${this.userLoginInfo.email}&password=${this.userLoginInfo.password}`,
-          headers: ['Content-Type', 'application/json']
         }).then((response) => {
           if (response.status == 200) {
             localStorage.setItem('token', response.data.accessToken)
