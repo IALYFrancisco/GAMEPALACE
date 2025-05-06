@@ -10,6 +10,7 @@
       <img src="/src/assets/cart.png" alt="" id="cart" v-if="UserIsConnected" />
       <button @click="goToLoginRegisterPage" v-if="!UserIsConnected">Login</button>
       <button v-if="UserIsConnected" @click="_logOut">Log out</button>
+      <button v-if="UserIsConnected" @click="goToDashboard">Dashboard</button>
     </div>
   </header>
   <main>
@@ -37,6 +38,9 @@ export default {
     methods: {
       goToLoginRegisterPage() {
           this.$router.push({ name: 'Login-or-register' })
+      },
+      goToDashboard() {
+          this.$router.push({ name: 'Games' })
       },
       _logOut(){
         authenticationStore.dispatch('LOGOUT')
