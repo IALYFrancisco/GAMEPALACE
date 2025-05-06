@@ -16,9 +16,6 @@ export const authenticationStore = createStore({
       state.token = token
       localStorage.setItem('token', token)
     },
-    getTokenLatestValue(state){
-      state.token = localStorage.getItem('token')
-    },
     LOGOUT(state){
       state.user = null
       state.token = null
