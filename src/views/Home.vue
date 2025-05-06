@@ -89,7 +89,7 @@ export default {
         : window.alert('Vous devez vous connecter pour faire un ajout au panier 🎫🎫')
     },
     _logOut(){
-      authenticationStore.commit('logOut')
+      authenticationStore.commit('LOGOUT')
       authenticationStore.commit('getTokenLatestValue')
       this.UserIsConnected = authenticationStore.getters.userIsConnected
       this.$router.push({ name: 'Home' })
