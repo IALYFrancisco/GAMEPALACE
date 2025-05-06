@@ -7,9 +7,10 @@
       </div>
     </router-link>
     <div class="header-actions">
-      <img src="/src/assets/cart.png" alt="" id="cart" v-if="UuserIsConnected" />
-      <button @click="goToLoginRegisterPage" v-if="!UuserIsConnected">Login</button>
-      <button v-if="UuserIsConnected" @click="_logOut">Log out</button>
+      <img src="/src/assets/cart.png" alt="" id="cart" v-if="UserIsConnected" />
+      <button @click="goToLoginRegisterPage" v-if="!UserIsConnected">Login</button>
+      <button v-if="UserIsConnected" @click="_logOut">Log out</button>
+      <button v-if="UserIsConnected" @click="goToDashboard">Dashboard</button>
     </div>
   </header>
   <nav class="home">
@@ -30,7 +31,7 @@
         class="add-to-cart"
         @click="addToCart(game._id)"
       />
-      <router-link :to="{name: 'Detailsgame', params: {_id: game._id}}">
+      <router-link :to="{name: 'Details-game', params: {_id: game._id}}">
         <img src="/src/assets/view-details.png" alt="" class="view-details" />
       </router-link>
       <div class="img">
@@ -41,7 +42,7 @@
 </template>
 
 <script>
-import { userStore } from '@/stores/store'
+import { authenticationStore } from '@/stores/store'
 import NoGamesComponent from '@/components/NoGamesComponent.vue'
 import LoaderComponent from '@/components/Others/LoaderComponent.vue'
 import axios from 'axios'
@@ -54,7 +55,7 @@ export default {
   },
   data() {
     return {
-      UuserIsConnected: userStore.state.connected,
+      UserIsConnected: authenticationStore.getters.userIsConnected,
       listOfGames: [],
       requestIsDone: false
     }
@@ -62,6 +63,9 @@ export default {
   methods: {
     goToLoginRegisterPage() {
       this.$router.push({ name: 'Login-or-register' })
+    },
+    goToDashboard() {
+      this.$router.push({ name: 'Games' })
     },
     async getListOfGames() {
       try {
@@ -83,18 +87,15 @@ export default {
         this.requestIsDone = true
       }
     },
-    _addToCart(gameId) {
-      userStore.state.cart.push(gameId)
-      window.alert('Ajouté au panier 🛒')
-      console.log(userStore.state.cart)
-    },
     addToCart(gameId) {
-      this.UuserIsConnected
+      this.UserIsConnected
         ? this._addToCart(gameId)
         : window.alert('Vous devez vous connecter pour faire un ajout au panier 🎫🎫')
     },
-    _logOut() {
-      userStore.commit('logOut')
+    async _logOut(){
+      await authenticationStore.dispatch('LOGOUT')
+      this.UserIsConnected = authenticationStore.getters.userIsConnected
+      this.$router.push({ name: 'Home' })
     }
   },
   async mounted() {

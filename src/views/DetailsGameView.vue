@@ -7,9 +7,10 @@
       </div>
     </router-link>
     <div class="header-actions">
-      <img src="/src/assets/cart.png" alt="" id="cart" v-if="UuserIsConnected" />
-      <button @click="goToLoginRegisterPage" v-if="!UuserIsConnected">Login</button>
-      <button v-if="UuserIsConnected" @click="_logOut">Log out</button>
+      <img src="/src/assets/cart.png" alt="" id="cart" v-if="UserIsConnected" />
+      <button @click="goToLoginRegisterPage" v-if="!UserIsConnected">Login</button>
+      <button v-if="UserIsConnected" @click="_logOut">Log out</button>
+      <button v-if="UserIsConnected" @click="goToDashboard">Dashboard</button>
     </div>
   </header>
   <main>
@@ -22,28 +23,36 @@
 
 <script>
 
-import { userStore } from '@/stores/store';
 import axios from 'axios';
+import { authenticationStore } from '@/stores/store';
 
 export default {
     name: "DetailsGameView",
     data(){
         return {
             gameId: this.$route.params._id,
-            UuserIsConnected: userStore.state.connected,
+            UserIsConnected: authenticationStore.getters.userIsConnected,
             game: ''
         }
     },
     methods: {
-        goToLoginRegisterPage() {
-            this.$router.push({ name: 'Login-or-register' })
-        },
+      goToLoginRegisterPage() {
+          this.$router.push({ name: 'Login-or-register' })
+      },
+      goToDashboard() {
+          this.$router.push({ name: 'Games' })
+      },
+      async _logOut(){
+        await authenticationStore.dispatch('LOGOUT')
+        this.UserIsConnected = authenticationStore.getters.userIsConnected
+        this.$router.push({ name: 'Home' })
+      }
     },
     async mounted(){
         await axios({
             method: 'GET',
             url: `${import.meta.env.VITE_BASE_URL}/game?_id=${this.$route.params._id}`
-        }).then((response) => { this.game = response; console.log(response) }).catch(error=>error)
+        }).then((response) => { this.game = response;}).catch(error=>error)
     }
 }
 
