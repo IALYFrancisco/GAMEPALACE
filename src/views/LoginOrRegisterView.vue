@@ -77,10 +77,10 @@
         <p>Sign up</p>
 
         <div class="form_element">
-          <label for="usermail">Email:</label>
+          <label for="email">Email:</label>
           <input
             type="email"
-            name="usermail"
+            name="email"
             placeholder="exemple@gmail.com"
             required
             v-model="userLoginInfo.email"
@@ -88,8 +88,8 @@
         </div>
 
         <div class="form_element">
-          <label for="userpassword">Password:</label>
-          <input type="password" name="userpassword" required v-model="userLoginInfo.password" />
+          <label for="password">Password:</label>
+          <input type="password" name="password" required v-model="userLoginInfo.password" />
         </div>
 
         <div class="form_action">
