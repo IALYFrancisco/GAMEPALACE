@@ -29,7 +29,8 @@ export const authenticationStore = createStore({
         await axios({
           method: 'POST',
           url: `${import.meta.env.VITE_BASE_URL}/user/logout`,
-          data: {}
+          data: {},
+          withCredentials: true
         }).then(()=>{
           commit('_LOGOUT')
         }).catch((err)=>{ console.log(`Error user logout: error serveur == ${err}`) })

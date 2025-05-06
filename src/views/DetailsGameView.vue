@@ -42,8 +42,8 @@ export default {
       goToDashboard() {
           this.$router.push({ name: 'Games' })
       },
-      _logOut(){
-        authenticationStore.dispatch('LOGOUT')
+      async _logOut(){
+        await authenticationStore.dispatch('LOGOUT')
         this.UserIsConnected = authenticationStore.getters.userIsConnected
         this.$router.push({ name: 'Home' })
       }
