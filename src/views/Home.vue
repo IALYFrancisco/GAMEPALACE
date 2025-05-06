@@ -88,8 +88,8 @@ export default {
         ? this._addToCart(gameId)
         : window.alert('Vous devez vous connecter pour faire un ajout au panier 🎫🎫')
     },
-    _logOut(){
-      authenticationStore.commit('LOGOUT')
+    async _logOut(){
+      await authenticationStore.dispatch('LOGOUT')
       this.UserIsConnected = authenticationStore.getters.userIsConnected
       this.$router.push({ name: 'Home' })
     }
