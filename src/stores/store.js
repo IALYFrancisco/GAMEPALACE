@@ -34,7 +34,7 @@ export const authenticationStore = createStore({
           commit('_LOGOUT')
         }).catch((err)=>{ console.log(`Error user logout: error serveur == ${err}`) })
     },
-    async REFRESHTOKEN({commit}){
+    async REFRESH_TOKEN({commit}){
       try{
         await axios({
           method: 'POST',
