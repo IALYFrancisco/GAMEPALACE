@@ -215,10 +215,12 @@ export default {
 
 .forms-container {
   display: flex;
-  background-color: orange;
+  /* background-color: orange; */
   width: 700px;
+  height: 450px;
   margin: 100px auto;
   column-gap: 50px;
+  overflow: hidden;
 }
 
 .overlay {
@@ -303,6 +305,7 @@ export default {
   height: max-content;
   display: flex;
   align-items: center;
+  margin-bottom: 50px;
 }
 
 .overlay .left_for_text .element span {
@@ -313,5 +316,9 @@ export default {
 
 .overlay .left_for_text .element img {
   width: 60px;
+}
+
+.logo {
+  margin-left: -6px;
 }
 </style>
