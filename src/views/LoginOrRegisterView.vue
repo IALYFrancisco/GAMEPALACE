@@ -22,11 +22,11 @@
         <form class="signin" @submit.prevent="userSignIn">
           <p>Sign in</p>
           <div class="form_element">
-            <label for="username">Name:</label>
+            <label for="name">Name:</label>
             <input
               type="text"
-              name="username"
-              id="username"
+              name="name"
+              id="name"
               placeholder="ex: John Doe"
               v-model="userSignInInfo.name"
               required
@@ -34,22 +34,22 @@
           </div>
   
           <div class="form_element">
-            <label for="userbirthdate">Birthdate:</label>
+            <label for="date">Birthdate:</label>
             <input
               type="date"
-              name="userbirthdate"
-              id="userbirthdate"
+              name="date"
+              id="date"
               v-model="userSignInInfo.birthdate"
               required
             />
           </div>
   
           <div class="form_element">
-            <label for="usermail">Email:</label>
+            <label for="email">Email:</label>
             <input
               type="email"
               name="usermail"
-              id="usermail"
+              id="email"
               placeholder="ex: johndoe7@gmail.com"
               v-model="userSignInInfo.email"
               required
@@ -57,11 +57,11 @@
           </div>
   
           <div class="form_element">
-            <label for="userpassword">Password:</label>
+            <label for="password">Password:</label>
             <input
               type="password"
-              name="userpassword"
-              id="userpassword"
+              name="password"
+              id="password"
               placeholder="Choose a strong password"
               v-model="userSignInInfo.password"
               required
@@ -189,13 +189,13 @@ export default {
     const link_to_signup = document.getElementById('link_to_signup')
 
     link_to_signup.addEventListener('click', () => {
-      document.querySelector('.right_for_form').style.transform = 'translateY(-450px)'
+      document.querySelector('.right_for_form').style.transform = 'translateY(-490px)'
     })
 
     const link_to_signin = document.getElementById('link_to_signin')
 
     link_to_signin.addEventListener('click', () => {
-      document.querySelector('.right_for_form').style.transform = 'translateY(150px)'
+      document.querySelector('.right_for_form').style.transform = 'initial'
     })
   }
 }
@@ -218,8 +218,8 @@ export default {
   /* background-color: orange; */
   width: 700px;
   height: 450px;
-  margin: 100px auto;
-  column-gap: 50px;
+  margin: 125px auto;
+  column-gap: 75px;
   overflow: hidden;
 }
 
@@ -241,7 +241,7 @@ export default {
 
 .overlay .right_for_form {
   height: 100vh;
-  /* transform: translateY(-450px); */
+  transform: translateY(-490px);
   transition: all 0.69s;
 }
 
@@ -252,6 +252,10 @@ export default {
   box-shadow: 2px 2px 10px #00000075;
   border-radius: 5px;
   padding: 18px;
+}
+
+.signin {
+  margin-bottom: 50px;
 }
 
 .overlay .right_for_form form .form_element {
