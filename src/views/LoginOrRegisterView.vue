@@ -2,7 +2,7 @@
   <div class="video">
     <video src="/src/assets/videos/login-register-bg.mp4" autoplay muted loop></video>
   </div>
-  <div class="signin_signup_page_container">
+  <div class="overlay">
     <div class="left_for_text">
       <router-link v-bind:to="{ name: 'Home' }">
         <div class="element">
@@ -211,7 +211,7 @@ div.video video {
   width: 100%;
 }
 
-div.signin_signup_page_container {
+div.overlay {
   overflow: hidden;
   width: 100%;
   height: 100vh;
@@ -221,7 +221,7 @@ div.signin_signup_page_container {
   position: relative;
 }
 
-div.signin_signup_page_container div.left_for_text {
+div.overlay div.left_for_text {
   width: 50%;
   height: 100vh;
   padding: 100px;
@@ -229,7 +229,7 @@ div.signin_signup_page_container div.left_for_text {
   color: #fff;
 }
 
-div.signin_signup_page_container div.right_for_form {
+div.overlay div.right_for_form {
   width: 50%;
   height: 100vh;
   display: flex;
@@ -240,7 +240,7 @@ div.signin_signup_page_container div.right_for_form {
   transition: all 0.69s;
 }
 
-div.signin_signup_page_container div.right_for_form form {
+div.overlay div.right_for_form form {
   width: 300px;
   height: max-content;
   background-color: #fff;
@@ -250,15 +250,15 @@ div.signin_signup_page_container div.right_for_form form {
   margin-top: 200px;
 }
 
-div.signin_signup_page_container div.right_for_form form div.form_element {
+div.overlay div.right_for_form form div.form_element {
   margin-bottom: 15px;
 }
 
-div.signin_signup_page_container div.right_for_form form div.form_action {
+div.overlay div.right_for_form form div.form_action {
   margin-top: 25px;
 }
 
-div.signin_signup_page_container div.right_for_form form div.form_action button {
+div.overlay div.right_for_form form div.form_action button {
   cursor: pointer;
   background: #ff0000;
   height: 30px;
@@ -271,12 +271,12 @@ div.signin_signup_page_container div.right_for_form form div.form_action button 
   box-shadow: 2px 2px 5px #3333336b;
 }
 
-div.signin_signup_page_container div.right_for_form form div.form_action a {
+div.overlay div.right_for_form form div.form_action a {
   font-size: 10px;
   color: #000;
 }
 
-div.signin_signup_page_container div.right_for_form form p {
+div.overlay div.right_for_form form p {
   width: 100%;
   border-bottom: 2px #333 solid;
   font-size: 25px;
@@ -284,32 +284,32 @@ div.signin_signup_page_container div.right_for_form form p {
   color: #333;
 }
 
-div.signin_signup_page_container div.right_for_form form label {
+div.overlay div.right_for_form form label {
   color: #333;
   font-size: 12px;
 }
 
-div.signin_signup_page_container div.right_for_form form input {
+div.overlay div.right_for_form form input {
   outline: none;
   width: 100%;
   height: 35px;
   padding-left: 5px;
 }
 
-div.signin_signup_page_container div.left_for_text div.element {
+div.overlay div.left_for_text div.element {
   width: inherit;
   height: max-content;
   display: flex;
   align-items: center;
 }
 
-div.signin_signup_page_container div.left_for_text div.element span {
+div.overlay div.left_for_text div.element span {
   color: white;
   font-size: 20px;
   margin-left: 10px;
 }
 
-div.signin_signup_page_container div.left_for_text div.element img {
+div.overlay div.left_for_text div.element img {
   width: 60px;
 }
 </style>
