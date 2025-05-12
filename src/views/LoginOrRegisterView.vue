@@ -216,6 +216,8 @@ export default {
 .forms-container {
   display: flex;
   background-color: orange;
+  width: 700px;
+  margin: auto;
 }
 
 .overlay {
@@ -236,11 +238,7 @@ export default {
 .overlay .right_for_form {
   width: 50%;
   height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  transform: translateY(-450px);
+  /* transform: translateY(-450px); */
   transition: all 0.69s;
 }
 
@@ -251,7 +249,6 @@ export default {
   box-shadow: 2px 2px 10px #00000075;
   border-radius: 5px;
   padding: 18px;
-  margin-top: 200px;
 }
 
 .overlay .right_for_form form .form_element {
