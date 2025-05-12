@@ -3,101 +3,103 @@
     <video src="/src/assets/videos/login-register-bg.mp4" autoplay muted loop></video>
   </div>
   <div class="overlay">
-    <div class="left_for_text">
-      <router-link v-bind:to="{ name: 'Home' }">
-        <div class="element">
-          <img src="/src/assets/logo.png" alt="logo" title="logo" class="logo" />
-          <span>GAMEPALACE</span>
-        </div>
-      </router-link>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus esse fugiat, soluta
-        ad quae natus nobis tempore numquam officiis sunt possimus officia suscipit nam repellat
-        qui. Quaerat totam, dolor iure neque maxime laudantium ullam, ea, quidem nobis eius voluptas
-        quae sapiente a? Fuga aperiam in eum, eos temporibus nam dignissimos.
-      </p>
-    </div>
-    <div class="right_for_form">
-      <form class="signin" @submit.prevent="userSignIn">
-        <p>Sign in</p>
-        <div class="form_element">
-          <label for="username">Name:</label>
-          <input
-            type="text"
-            name="username"
-            id="username"
-            placeholder="ex: John Doe"
-            v-model="userSignInInfo.name"
-            required
-          />
-        </div>
-
-        <div class="form_element">
-          <label for="userbirthdate">Birthdate:</label>
-          <input
-            type="date"
-            name="userbirthdate"
-            id="userbirthdate"
-            v-model="userSignInInfo.birthdate"
-            required
-          />
-        </div>
-
-        <div class="form_element">
-          <label for="usermail">Email:</label>
-          <input
-            type="email"
-            name="usermail"
-            id="usermail"
-            placeholder="ex: johndoe7@gmail.com"
-            v-model="userSignInInfo.email"
-            required
-          />
-        </div>
-
-        <div class="form_element">
-          <label for="userpassword">Password:</label>
-          <input
-            type="password"
-            name="userpassword"
-            id="userpassword"
-            placeholder="Choose a strong password"
-            v-model="userSignInInfo.password"
-            required
-          />
-        </div>
-
-        <div class="form_action">
-          <button v-on:submit.prevent="" type="submit">Submit</button>
-          <a href="#" id="link_to_signup">Have already an account?</a>
-        </div>
-      </form>
-
-      <form class="signup" action="" method="post" @submit.prevent="userLogin">
-        <p>Sign up</p>
-
-        <div class="form_element">
-          <label for="email">Email:</label>
-          <input
-            type="email"
-            name="email"
-            placeholder="exemple@gmail.com"
-            required
-            v-model="userLoginInfo.email"
-          />
-        </div>
-
-        <div class="form_element">
-          <label for="password">Password:</label>
-          <input type="password" name="password" required v-model="userLoginInfo.password" />
-        </div>
-
-        <div class="form_action">
-          <button type="submit">Submit</button>
-          <a href="#" id="link_to_signin">Haven't an account?</a>
-        </div>
-      </form>
-    </div>
+    <section class="forms-container">
+      <div class="left_for_text">
+        <router-link v-bind:to="{ name: 'Home' }">
+          <div class="element">
+            <img src="/src/assets/logo.png" alt="logo" title="logo" class="logo" />
+            <span>GAMEPALACE</span>
+          </div>
+        </router-link>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus esse fugiat, soluta
+          ad quae natus nobis tempore numquam officiis sunt possimus officia suscipit nam repellat
+          qui. Quaerat totam, dolor iure neque maxime laudantium ullam, ea, quidem nobis eius voluptas
+          quae sapiente a? Fuga aperiam in eum, eos temporibus nam dignissimos.
+        </p>
+      </div>
+      <div class="right_for_form">
+        <form class="signin" @submit.prevent="userSignIn">
+          <p>Sign in</p>
+          <div class="form_element">
+            <label for="username">Name:</label>
+            <input
+              type="text"
+              name="username"
+              id="username"
+              placeholder="ex: John Doe"
+              v-model="userSignInInfo.name"
+              required
+            />
+          </div>
+  
+          <div class="form_element">
+            <label for="userbirthdate">Birthdate:</label>
+            <input
+              type="date"
+              name="userbirthdate"
+              id="userbirthdate"
+              v-model="userSignInInfo.birthdate"
+              required
+            />
+          </div>
+  
+          <div class="form_element">
+            <label for="usermail">Email:</label>
+            <input
+              type="email"
+              name="usermail"
+              id="usermail"
+              placeholder="ex: johndoe7@gmail.com"
+              v-model="userSignInInfo.email"
+              required
+            />
+          </div>
+  
+          <div class="form_element">
+            <label for="userpassword">Password:</label>
+            <input
+              type="password"
+              name="userpassword"
+              id="userpassword"
+              placeholder="Choose a strong password"
+              v-model="userSignInInfo.password"
+              required
+            />
+          </div>
+  
+          <div class="form_action">
+            <button v-on:submit.prevent="" type="submit">Submit</button>
+            <a href="#" id="link_to_signup">Have already an account?</a>
+          </div>
+        </form>
+  
+        <form class="signup" action="" method="post" @submit.prevent="userLogin">
+          <p>Sign up</p>
+  
+          <div class="form_element">
+            <label for="email">Email:</label>
+            <input
+              type="email"
+              name="email"
+              placeholder="exemple@gmail.com"
+              required
+              v-model="userLoginInfo.email"
+            />
+          </div>
+  
+          <div class="form_element">
+            <label for="password">Password:</label>
+            <input type="password" name="password" required v-model="userLoginInfo.password" />
+          </div>
+  
+          <div class="form_action">
+            <button type="submit">Submit</button>
+            <a href="#" id="link_to_signin">Haven't an account?</a>
+          </div>
+        </form>
+      </div>
+    </section>
   </div>
 </template>
 
@@ -211,19 +213,22 @@ export default {
   width: 100%;
 }
 
+.forms-container {
+  display: flex;
+  background-color: orange;
+}
+
 .overlay {
   overflow: hidden;
   width: 100%;
   height: 100vh;
   background-color: #0000007a;
-  display: flex;
   position: relative;
 }
 
 .overlay .left_for_text {
   width: 50%;
   height: 100vh;
-  padding: 100px;
   text-align: justify;
   color: #fff;
 }
