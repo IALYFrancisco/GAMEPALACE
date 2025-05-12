@@ -217,7 +217,8 @@ export default {
   display: flex;
   background-color: orange;
   width: 700px;
-  margin: auto;
+  margin: 100px auto;
+  column-gap: 50px;
 }
 
 .overlay {
@@ -231,12 +232,12 @@ export default {
 .overlay .left_for_text {
   width: 50%;
   height: 100vh;
-  text-align: justify;
   color: #fff;
+  font-size: 14px;
+  font-weight: 400;
 }
 
 .overlay .right_for_form {
-  width: 50%;
   height: 100vh;
   /* transform: translateY(-450px); */
   transition: all 0.69s;
