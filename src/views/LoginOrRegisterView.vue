@@ -216,7 +216,6 @@ div.overlay {
   width: 100%;
   height: 100vh;
   background-color: #0000007a;
-  background-size: cover;
   display: flex;
   position: relative;
 }
