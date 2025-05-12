@@ -200,18 +200,18 @@ export default {
 </script>
 
 <style>
-div.video {
+.video {
   width: 100%;
   height: 100vh;
   overflow: hidden;
   position: absolute;
 }
 
-div.video video {
+.video video {
   width: 100%;
 }
 
-div.overlay {
+.overlay {
   overflow: hidden;
   width: 100%;
   height: 100vh;
@@ -220,7 +220,7 @@ div.overlay {
   position: relative;
 }
 
-div.overlay div.left_for_text {
+.overlay .left_for_text {
   width: 50%;
   height: 100vh;
   padding: 100px;
@@ -228,7 +228,7 @@ div.overlay div.left_for_text {
   color: #fff;
 }
 
-div.overlay div.right_for_form {
+.overlay .right_for_form {
   width: 50%;
   height: 100vh;
   display: flex;
@@ -239,7 +239,7 @@ div.overlay div.right_for_form {
   transition: all 0.69s;
 }
 
-div.overlay div.right_for_form form {
+.overlay .right_for_form form {
   width: 300px;
   height: max-content;
   background-color: #fff;
@@ -249,15 +249,15 @@ div.overlay div.right_for_form form {
   margin-top: 200px;
 }
 
-div.overlay div.right_for_form form div.form_element {
+.overlay .right_for_form form .form_element {
   margin-bottom: 15px;
 }
 
-div.overlay div.right_for_form form div.form_action {
+.overlay .right_for_form form .form_action {
   margin-top: 25px;
 }
 
-div.overlay div.right_for_form form div.form_action button {
+.overlay .right_for_form form .form_action button {
   cursor: pointer;
   background: #ff0000;
   height: 30px;
@@ -270,12 +270,12 @@ div.overlay div.right_for_form form div.form_action button {
   box-shadow: 2px 2px 5px #3333336b;
 }
 
-div.overlay div.right_for_form form div.form_action a {
+.overlay .right_for_form form .form_action a {
   font-size: 10px;
   color: #000;
 }
 
-div.overlay div.right_for_form form p {
+.overlay .right_for_form form p {
   width: 100%;
   border-bottom: 2px #333 solid;
   font-size: 25px;
@@ -283,32 +283,32 @@ div.overlay div.right_for_form form p {
   color: #333;
 }
 
-div.overlay div.right_for_form form label {
+.overlay .right_for_form form label {
   color: #333;
   font-size: 12px;
 }
 
-div.overlay div.right_for_form form input {
+.overlay .right_for_form form input {
   outline: none;
   width: 100%;
   height: 35px;
   padding-left: 5px;
 }
 
-div.overlay div.left_for_text div.element {
+.overlay .left_for_text .element {
   width: inherit;
   height: max-content;
   display: flex;
   align-items: center;
 }
 
-div.overlay div.left_for_text div.element span {
+.overlay .left_for_text .element span {
   color: white;
   font-size: 20px;
   margin-left: 10px;
 }
 
-div.overlay div.left_for_text div.element img {
+.overlay .left_for_text .element img {
   width: 60px;
 }
 </style>
