@@ -11,12 +11,10 @@
             <span>GAMEPALACE</span>
           </div>
         </router-link>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus esse fugiat, soluta
-          ad quae natus nobis tempore numquam officiis sunt possimus officia suscipit nam repellat
-          qui. Quaerat totam, dolor iure neque maxime laudantium ullam, ea, quidem nobis eius voluptas
-          quae sapiente a? Fuga aperiam in eum, eos temporibus nam dignissimos.
-        </p>
+        <section class="citation">
+          <blockquote>Les bons jeux vidéo sont fondés sur les meilleurs principes d’apprentissage. Ils poussent le joueur à réfléchir, à expérimenter, à apprendre par l’échec.</blockquote>
+          <address>James Paul Gee</address>
+        </section>
       </div>
       <div class="right_for_form">
         <form class="signin" @submit.prevent="userSignIn">
@@ -324,5 +322,9 @@ export default {
 
 .logo {
   margin-left: -6px;
+}
+
+address {
+  margin-top: 20px;
 }
 </style>
