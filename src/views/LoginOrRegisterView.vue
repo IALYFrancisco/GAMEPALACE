@@ -7,7 +7,7 @@
       <div class="left_for_text">
         <router-link v-bind:to="{ name: 'Home' }">
           <div class="element">
-            <img src="/src/assets/logo.png" alt="logo" title="logo" class="logo" />
+            <img src="/src/assets/logo.png" alt="Logo de GAMEPALACE" title="Logo de GAMEPALACE" class="logo" />
             <span>GAMEPALACE</span>
           </div>
         </router-link>
