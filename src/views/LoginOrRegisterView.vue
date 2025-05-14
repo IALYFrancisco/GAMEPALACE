@@ -209,6 +209,8 @@ export default {
 
 .video video {
   width: 100%;
+  height: inherit;
+  object-fit: cover;
 }
 
 .forms-container {
