@@ -215,7 +215,6 @@ export default {
 
 .forms-container {
   display: flex;
-  /* background-color: orange; */
   width: 700px;
   height: 450px;
   margin: 125px auto;
@@ -328,5 +327,9 @@ export default {
 
 address {
   margin-top: 20px;
+}
+
+@media only screen and (max-width: 768px) {
+  
 }
 </style>
