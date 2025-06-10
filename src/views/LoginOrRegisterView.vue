@@ -163,11 +163,6 @@ export default {
           method: 'POST',
           url: `${import.meta.env.VITE_BASE_URL}/user/login?email=${this.userLoginInfo.email}&password=${this.userLoginInfo.password}`,
           withCredentials: true,
-          headers: {
-            "Accept" : "*/*",
-            "Accept-Encoding" : "gzip, deflate, br",
-            "Connection" : "keep-alive"
-          }
         }).then((response) => {
           if (response.status == 200) {
             authenticationStore.commit('SET_USER', response.data.user[0])
