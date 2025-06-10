@@ -163,11 +163,6 @@ export default {
           method: 'POST',
           url: `${import.meta.env.VITE_BASE_URL}/user/login?email=${this.userLoginInfo.email}&password=${this.userLoginInfo.password}`,
           withCredentials: true,
-          headers: {
-            "Accept" : "*/*",
-            "Accept-Encoding" : "gzip, deflate, br",
-            "Connection" : "keep-alive"
-          }
         }).then((response) => {
           if (response.status == 200) {
             authenticationStore.commit('SET_USER', response.data.user[0])
@@ -215,7 +210,6 @@ export default {
 
 .forms-container {
   display: flex;
-  /* background-color: orange; */
   width: 700px;
   height: 450px;
   margin: 125px auto;
@@ -320,6 +314,10 @@ export default {
 
 .overlay .left_for_text .element img {
   width: 60px;
+}
+
+.left_for_text a {
+  text-decoration: none;
 }
 
 .logo {
