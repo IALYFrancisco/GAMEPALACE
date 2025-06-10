@@ -322,6 +322,10 @@ export default {
   width: 60px;
 }
 
+.left_for_text a {
+  text-decoration: none;
+}
+
 .logo {
   margin-left: -6px;
 }
