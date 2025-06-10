@@ -215,7 +215,6 @@ export default {
 
 .forms-container {
   display: flex;
-  /* background-color: orange; */
   width: 700px;
   height: 450px;
   margin: 125px auto;
