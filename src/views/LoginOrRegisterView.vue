@@ -162,7 +162,7 @@ export default {
         await axios({
           method: 'POST',
           url: `${import.meta.env.VITE_BASE_URL}/user/login?email=${this.userLoginInfo.email}&password=${this.userLoginInfo.password}`,
-          withCredentials: true,
+          withCredentials: true
         }).then((response) => {
           if (response.status == 200) {
             authenticationStore.commit('SET_USER', response.data.user[0])
